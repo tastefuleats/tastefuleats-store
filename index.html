@@ -3,38 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TastefulEats</title>
+  <title>TastefulEats — Where Flavor Headlines Merch Drops</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="homepage dark-theme">
+
   <header>
-    <h1>TastefulEats</h1>
-    <p>Where memory becomes flavor, and every recipe is a story.</p>
+    <h1>🕯️ TastefulEats</h1>
+    <p class="tagline">Where flavor headlines merch drops.</p>
     <nav>
-      <a href="about.html">About</a>
-      <a href="store.html">Store</a>
       <a href="earn.html">Earn</a>
-      <a href="recipes/biscuits.html">Recipes</a>
+      <a href="ritual-calendar.html">Calendar</a>
+      <a href="cart.html">Cart</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Featured Recipe</h2>
-      <p><strong>Grandma’s Buttermilk Biscuits</strong> — the kind that held a family together through silence, storms, and Sunday mornings.</p>
-      <a href="recipes/biscuits.html">Read the story →</a>
-    </section>
+  <section class="hero-banner">
+    <h2>✨ Emotional Merch & Recipes</h2>
+    <p>Every product is a vessel. Every story is a ritual.</p>
+  </section>
 
-    <section>
-      <h2>Emotional Merch</h2>
-      <p>Wear your memories. Aprons stitched with longing. Mugs glazed in comfort.</p>
-      <a href="store.html">Browse the store →</a>
-    </section>
-  </main>
+  <section class="featured-recipes">
+    <h2>🍽️ CRAVE / GLOW / REBEL / CHILL</h2>
+    <div class="recipe-card">
+      <img src="images/pizza.jpg" alt="CRAVE Pizza" />
+      <h3>CRAVE</h3>
+      <p>Discover the pizza that makes my heart skip a beat...</p>
+    </div>
+    <div class="recipe-card">
+      <img src="images/salad.jpg" alt="GLOW Salad" />
+      <h3>GLOW</h3>
+      <p>A salad that brings pure joy with every bite</p>
+    </div>
+    <div class="recipe-card">
+      <img src="images/fried-chicken.jpg" alt="REBEL Chicken" />
+      <h3>REBEL</h3>
+      <p>Sometimes you just need to embrace the crispy...</p>
+    </div>
+    <div class="recipe-card">
+      <img src="images/milkshake.jpg" alt="CHILL Milkshake" />
+      <h3>CHILL</h3>
+      <p>This milkshake is my go-to for pure bliss</p>
+    </div>
+  </section>
+
+  <section class="drop-zone">
+    <h2>🛍️ Drop Zone</h2>
+    <div class="merch-item">
+      <img src="images/joy-tee.jpg" alt="JOY Tee" />
+      <p><strong>JOY Tee</strong> — $28.00</p>
+      <button onclick="addToCart('JOY Tee', 28.00, 'images/joy-tee.jpg')">Add to Cart</button>
+    </div>
+  </section>
+
+  <section class="daily-food-news">
+    <h2>📰 Daily Food News</h2>
+    <div class="news-item">
+      <img src="images/good-vibes-cap.jpg" alt="GOOD VIBES Cap" />
+      <p><strong>GOOD VIBES Cap</strong> — $22.00</p>
+      <p>What we eat says a lot about us. Here’s what’s new.</p>
+      <button onclick="addToCart('GOOD VIBES Cap', 22.00, 'images/good-vibes-cap.jpg')">Add to Cart</button>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 TastefulEats. Built with memory, hosted with love.</p>
+    <p>&copy; 2025 TastefulEats. Emotion is infrastructure.</p>
   </footer>
+
+  <script>
+    function addToCart(name, price, image) {
+      const product = { name, price, image };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
 </body>
 </html>
-
