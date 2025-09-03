@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — TastefulEats</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="cart-page dark-theme">
+
+  <header>
+    <h1>🛒 Your Cart</h1>
+    <p class="tagline">These vessels are waiting to be claimed.</p>
+  </header>
+
+  <section id="cartItems" class="cart-list">
+    <!-- Cart items will be injected here -->
+  </section>
+
+  <section class="cart-summary">
+    <p><strong>Total:</strong> $<span id="cartTotal">0.00</span></p>
+    <button onclick="checkout()" class="cta-button">Proceed to Checkout</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Every item is a story.</p>
+  </footer>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const container = document.getElementById("cartItems");
+      const totalDisplay = document.getElementById("cartTotal");
+      container.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        const block = document.createElement("div");
+        block.classList.add("cart-block");
+        block.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="cart-image" />
+          <p><strong>${item.name}</strong> — $${item.price.toFixed(2)}</p>
+          <button onclick="removeItem(${index})">Remove</button>
+        `;
+        container.appendChild(block);
+      });
+
+      totalDisplay.textContent = total.toFixed(2);
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function checkout() {
+      window.location.href = "order-confirmation.html";
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
