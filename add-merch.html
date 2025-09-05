@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Merch — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="add-merch dark-theme">
+
+  <header>
+    <h1>🧵 Add New Merch</h1>
+    <p class="tagline">Every item is a vessel. Let’s add with care.</p>
+  </header>
+
+  <section class="merch-form">
+    <label for="merchTitle">Title</label>
+    <input type="text" id="merchTitle" placeholder="e.g. JOY Hoodie" />
+
+    <label for="merchImage">Upload Image</label>
+    <input type="file" id="merchImage" accept="image/*" />
+
+    <label for="merchDescription">Description</label>
+    <textarea id="merchDescription" placeholder="Describe the emotional tone, story, and material..." rows="4"></textarea>
+
+    <label for="merchPrice">Price ($)</label>
+    <input type="number" id="merchPrice" step="0.01" />
+
+    <label for="merchColors">Available Colors</label>
+    <input type="text" id="merchColors" placeholder="e.g. Sandstone, Midnight, Moss" />
+
+    <label for="merchSizes">Available Sizes</label>
+    <input type="text" id="merchSizes" placeholder="e.g. XS, S, M, L, XL, XXL" />
+
+    <p class="shipping-note">📦 Shipping takes 9–14 business days. Each item is packed with care and memory.</p>
+
+    <button onclick="saveMerch()">Add to Store</button>
+  </section>
+
+  <section id="merchLog" class="inventory-log">
+    <h2>🗂️ Uploaded Merch</h2>
+    <!-- Merch entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Merch is memory made wearable.</p>
+  </footer>
+
+  <script>
+    function saveMerch() {
+      const title = document.getElementById("merchTitle").value;
+      const imageInput = document.getElementById("merchImage");
+      const description = document.getElementById("merchDescription").value;
+      const price = document.getElementById("merchPrice").value;
+      const colors = document.getElementById("merchColors").value;
+      const sizes = document.getElementById("merchSizes").value;
+
+      const container = document.getElementById("merchLog");
+      const block = document.createElement("div");
+      block.classList.add("inventory-block");
+
+      const imageFile = imageInput.files[0];
+      const imageURL = imageFile ? URL.createObjectURL(imageFile) : "";
+
+      block.innerHTML = `
+        <img src="${imageURL}" alt="${title}" style="max-width:100%; border-radius:8px; margin-bottom:1rem;" />
+        <h3>${title}</h3>
+        <p><strong>Description:</strong> ${description}</p>
+        <p><strong>Price:</strong> $${parseFloat(price).toFixed(2)}</p>
+        <p><strong>Colors:</strong> ${colors}</p>
+        <p><strong>Sizes:</strong> ${sizes}</p>
+        <p class="shipping-note">📦 Shipping takes 9–14 business days.</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("merchTitle").value = "";
+      document.getElementById("merchImage").value = "";
+      document.getElementById("merchDescription").value = "";
+      document.getElementById("merchPrice").value = "";
+      document.getElementById("merchColors").value = "";
+      document.getElementById("merchSizes").value = "";
+    }
+  </script>
+</body>
+</html>
