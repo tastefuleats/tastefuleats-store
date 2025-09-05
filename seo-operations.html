@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Operations — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seo-operations dark-theme">
+
+  <header>
+    <h1>🧠 SEO Operations</h1>
+    <p class="tagline">Structure your stories. Cluster your rituals. Speak to search with soul.</p>
+  </header>
+
+  <section class="operations-form">
+    <label for="schemaType">Schema Type</label>
+    <select id="schemaType">
+      <option>Recipe</option>
+      <option>Product</option>
+      <option>Article</option>
+      <option>Event</option>
+      <option>FAQ</option>
+    </select>
+
+    <label for="queryIntent">Conversational Query</label>
+    <input type="text" id="queryIntent" placeholder="e.g. What hoodie helps me feel held?" />
+
+    <label for="clusterTopic">Topical Cluster</label>
+    <input type="text" id="clusterTopic" placeholder="e.g. Emotional Merch, Memory Clothing, Ritual Apparel" />
+
+    <label for="linkedPages">Linked Pages</label>
+    <textarea id="linkedPages" placeholder="e.g. joy-hoodie-story.html, earn.html, ritual-calendar.html"></textarea>
+
+    <button onclick="saveOperation()">Save Operation</button>
+  </section>
+
+  <section id="operationLog" class="operations-log">
+    <h2>🗂️ Saved SEO Operations</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. SEO is emotional architecture for machines.</p>
+  </footer>
+
+  <script>
+    function saveOperation() {
+      const schema = document.getElementById("schemaType").value;
+      const query = document.getElementById("queryIntent").value;
+      const cluster = document.getElementById("clusterTopic").value;
+      const links = document.getElementById("linkedPages").value;
+
+      const container = document.getElementById("operationLog");
+      const block = document.createElement("div");
+      block.classList.add("operation-block");
+      block.innerHTML = `
+        <h3>${schema} Schema</h3>
+        <p><strong>Query Intent:</strong> ${query}</p>
+        <p><strong>Topical Cluster:</strong> ${cluster}</p>
+        <p><strong>Linked Pages:</strong> ${links}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("schemaType").value = "Recipe";
+      document.getElementById("queryIntent").value = "";
+      document.getElementById("clusterTopic").value = "";
+      document.getElementById("linkedPages").value = "";
+    }
+  </script>
+</body>
+</html>
