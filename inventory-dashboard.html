@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="inventory-dashboard dark-theme">
+
+  <header>
+    <h1>📦 Inventory Dashboard</h1>
+    <p class="tagline">Track your vessels. Every item is a story waiting to be worn.</p>
+  </header>
+
+  <section class="inventory-form">
+    <label for="itemName">Item Name</label>
+    <input type="text" id="itemName" placeholder="e.g. JOY Hoodie" />
+
+    <label for="itemStyle">Style</label>
+    <select id="itemStyle">
+      <option>Hidden Pocket Fleece Hoodie</option>
+      <option>Sunfade Oversized Hoodie</option>
+      <option>Reverse Dyed Cotton T-Shirt</option>
+      <option>Fleeced Sweatshirt</option>
+    </select>
+
+    <label for="itemTag">Emotional Tag</label>
+    <input type="text" id="itemTag" placeholder="e.g. joy, grief, ritual" />
+
+    <label for="itemStock">Stock Quantity</label>
+    <input type="number" id="itemStock" />
+
+    <button onclick="addItem()">Add to Inventory</button>
+  </section>
+
+  <section id="inventoryList" class="inventory-log">
+    <h2>🗂️ Current Inventory</h2>
+    <!-- Inventory items will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Inventory is emotional infrastructure.</p>
+  </footer>
+
+  <script>
+    function addItem() {
+      const name = document.getElementById("itemName").value;
+      const style = document.getElementById("itemStyle").value;
+      const tag = document.getElementById("itemTag").value;
+      const stock = document.getElementById("itemStock").value;
+
+      const container = document.getElementById("inventoryList");
+      const block = document.createElement("div");
+      block.classList.add("inventory-block");
+      block.innerHTML = `
+        <h3>${name}</h3>
+        <p><strong>Style:</strong> ${style}</p>
+        <p><strong>Tag:</strong> ${tag}</p>
+        <p><strong>Stock:</strong> ${stock}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("itemName").value = "";
+      document.getElementById("itemStyle").value = "Hidden Pocket Fleece Hoodie";
+      document.getElementById("itemTag").value = "";
+      document.getElementById("itemStock").value = "";
+    }
+  </script>
+</body>
+</html>
