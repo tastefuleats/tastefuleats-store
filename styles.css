@@ -1,0 +1,126 @@
+/* 🌑 Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* 🌗 Thematic Layouts */
+header, footer {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.tagline {
+  font-style: italic;
+  color: #ccc;
+}
+
+/* 🌘 Containers */
+section {
+  margin-bottom: 3rem;
+}
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+section h3 {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+/* 🌒 Forms & Inputs */
+input, select, textarea, button {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+}
+textarea {
+  resize: vertical;
+}
+button {
+  background-color: #ff6f61;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background-color: #e85c50;
+}
+
+/* 🌑 Cards & Blocks */
+.calendar-block, .drop-block, .inventory-block, .review-block,
+.tag-block, .ad-block, .payout-block, .seo-block, .operation-block,
+.authority-block, .health-block {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* 🌕 CTA Buttons */
+.cta-button {
+  display: inline-block;
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.cta-button:hover {
+  background-color: #e85c50;
+}
+
+/* 🌔 Images & Audio */
+.story-image, .recipe-image, .merch-details img, .merch-tie-in img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+audio {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* 🌖 Responsive Grid */
+.partner-grid, .earn-options, .toolkit-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.partner-block, .earn-block, .toolkit-block {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* 🌘 Footer */
+footer {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 3rem;
+}
+
+/* 🌙 Dark Theme Utility */
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
