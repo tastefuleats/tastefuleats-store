@@ -1,0 +1,10 @@
+[
+  { "tag": "Comfort Food", "description": "Cozy, nostalgic, indulgent" },
+  { "tag": "Spicy", "description": "Bold, defiant, high-energy" },
+  { "tag": "Sweet", "description": "Whimsical, soft, joyful" },
+  { "tag": "Glow", "description": "Daytime joy, serotonin tones" },
+  { "tag": "Reverie", "description": "Dreamy, pastel, introspective" },
+  { "tag": "Savory", "description": "Grounded, earthy, elegant" },
+  { "tag": "Focused", "description": "Precision, clarity, performance" },
+  { "tag": "Playful", "description": "Humorous, light, expressive" }
+]
