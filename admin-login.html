@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="login-page dark-theme">
+
+  <header>
+    <h1>🔐 Admin Login</h1>
+    <p class="tagline">Welcome back, Bryan. Let’s protect the sanctuaries.</p>
+  </header>
+
+  <section class="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="admin@tastefuleats.store" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="ritual2025" />
+
+    <button onclick="login()">Login</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Access is sacred.</p>
+  </footer>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin@tastefuleats.store" && pass === "ritual2025") {
+        alert("Login successful.");
+        window.location.href = "seo-dashboard.html";
+      } else {
+        alert("Invalid credentials. Try again.");
+      }
+    }
+  </script>
+</body>
+</html>
