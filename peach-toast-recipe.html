@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peach Toast Recipe — TastefulEats</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="recipe-page dark-theme">
+
+  <header>
+    <h1>🍑 Peach Toast</h1>
+    <p class="tagline">This recipe is a memory I can eat.</p>
+  </header>
+
+  <section class="recipe-content">
+    <img src="images/peach-toast.jpg" alt="Peach Toast" class="recipe-image" />
+    <audio controls>
+      <source src="audio/peach-toast-recipe.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <article>
+      <h2>🕯️ The Ritual</h2>
+      <p>
+        I made this toast the morning after my grandmother passed. The peaches were overripe, the bread was thick, and the honey was the kind she used to stir into her tea. I didn’t plan it—it just happened. And somehow, it felt like she was there.
+      </p>
+      <p>
+        This isn’t just breakfast. It’s a ritual of remembrance. A way to start the day with softness and sweetness. A way to say: I’m still here, and so are you.
+      </p>
+    </article>
+
+    <h2>🧾 Ingredients</h2>
+    <ul>
+      <li>2 slices thick sourdough bread</li>
+      <li>1 ripe peach, sliced</li>
+      <li>1 tbsp honey</li>
+      <li>1 tbsp ricotta or mascarpone</li>
+      <li>Pinch of sea salt</li>
+
+    </ul>
+
+    <h2>👣 Instructions</h2>
+    <ol>
+      <li>Toast the sourdough until golden and crisp.</li>
+      <li>Spread ricotta or mascarpone generously.</li>
+      <li>Layer peach slices gently, like placing memories.</li>
+      <li>Drizzle honey and sprinkle sea salt.</li>
+      <li>Serve warm. Eat slowly. Remember deeply.</li>
+    </ol>
+
+    <div class="merch-tie-in">
+      <h3>🛍️ Featured Merch</h3>
+      <p><strong>Radiance Tote</strong> — $32.00</p>
+      <img src="images/radiance-tote.jpg" alt="Radiance Tote" />
+      <button onclick="addToCart('Radiance Tote', 32.00, 'images/radiance-tote.jpg')">Add to Cart</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Recipes are rituals. This one is for her.</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price, image) {
+      const product = { name, price, image };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
+</body>
+</html>
