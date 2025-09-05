@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drop Scheduler — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="drop-scheduler dark-theme">
+
+  <header>
+    <h1>📆 Drop Scheduler</h1>
+    <p class="tagline">Plan your emotional releases with precision and poetry.</p>
+  </header>
+
+  <section class="scheduler-form">
+    <label for="dropTitle">Drop Title</label>
+    <input type="text" id="dropTitle" placeholder="e.g. JOY Hoodie Story Drop" />
+
+    <label for="dropType">Drop Type</label>
+    <select id="dropType">
+      <option>Merch</option>
+      <option>Recipe</option>
+      <option>Story</option>
+      <option>Seasonal Bundle</option>
+    </select>
+
+    <label for="dropDate">Drop Date</label>
+    <input type="date" id="dropDate" />
+
+    <label for="dropNotes">Notes</label>
+    <textarea id="dropNotes" placeholder="Emotional context, contributor, merch tie-ins..."></textarea>
+
+    <button onclick="scheduleDrop()">Schedule Drop</button>
+  </section>
+
+  <section id="scheduledDrops" class="drop-log">
+    <h2>🗂️ Scheduled Drops</h2>
+    <!-- Scheduled drops will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Every drop is a memory waiting to be released.</p>
+  </footer>
+
+  <script>
+    function scheduleDrop() {
+      const title = document.getElementById("dropTitle").value;
+      const type = document.getElementById("dropType").value;
+      const date = document.getElementById("dropDate").value;
+      const notes = document.getElementById("dropNotes").value;
+
+      const container = document.getElementById("scheduledDrops");
+      const block = document.createElement("div");
+      block.classList.add("drop-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Type:</strong> ${type}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("dropTitle").value = "";
+      document.getElementById("dropType").value = "Merch";
+      document.getElementById("dropDate").value = "";
+      document.getElementById("dropNotes").value = "";
+    }
+  </script>
+</body>
+</html>
