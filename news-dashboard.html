@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food News Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="news-dashboard dark-theme">
+
+  <header>
+    <h1>📰 Food News Dashboard</h1>
+    <p class="tagline">Publish joy. Curate nourishment. Uplift the industry.</p>
+  </header>
+
+  <section class="news-form">
+    <label for="newsTitle">Story Title</label>
+    <input type="text" id="newsTitle" placeholder="e.g. Wendy’s Drops Pumpkin Frosty" />
+
+    <label for="newsSummary">Summary</label>
+    <textarea id="newsSummary" placeholder="e.g. Wendy’s launches its first-ever Pumpkin Spice Frosty nationwide..." rows="3"></textarea>
+
+    <label for="newsImage">Upload Image (optional)</label>
+    <input type="file" id="newsImage" accept="image/*" />
+
+    <label for="newsTag">Emotional Tag</label>
+    <input type="text" id="newsTag" placeholder="e.g. joy, nostalgia, innovation" />
+
+    <label for="merchTieIn">Merch Tie-In (optional)</label>
+    <input type="text" id="merchTieIn" placeholder="e.g. Radiance Tote, joy-hoodie-story.html" />
+
+    <button onclick="publishNews()">Publish Story</button>
+  </section>
+
+  <section id="newsLog" class="news-feed">
+    <h2>🗂️ Published Stories</h2>
+    <!-- News stories will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. News is nourishment. We only publish what uplifts.</p>
+  </footer>
+
+  <script>
+    function publishNews() {
+      const title = document.getElementById("newsTitle").value;
+      const summary = document.getElementById("newsSummary").value;
+      const imageFile = document.getElementById("newsImage").files[0];
+      const tag = document.getElementById("newsTag").value;
+      const merch = document.getElementById("merchTieIn").value;
+
+      const container = document.getElementById("newsLog");
+      const block = document.createElement("div");
+      block.classList.add("news-card");
+
+      const imageURL = imageFile ? URL.createObjectURL(imageFile) : "";
+
+      block.innerHTML = `
+        ${imageURL ? `<img src="${imageURL}" alt="${title}" style="max-width:100%; border-radius:8px; margin-bottom:1rem;" />` : ""}
+        <h3>${title}</h3>
+        <p>${summary}</p>
+        <p class="emotion">Tag: ${tag}</p>
+        ${merch ? `<p><strong>Merch Tie-In:</strong> ${merch}</p>` : ""}
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("newsTitle").value = "";
+      document.getElementById("newsSummary").value = "";
+      document.getElementById("newsImage").value = "";
+      document.getElementById("newsTag").value = "";
+      document.getElementById("merchTieIn").value = "";
+    }
+  </script>
+</body>
+</html>
