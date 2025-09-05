@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Audit Checklist — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seo-audit dark-theme">
+
+  <header>
+    <h1>✅ Emotional SEO Audit Checklist</h1>
+    <p class="tagline">Every page is a vessel. Audit with care before it sails.</p>
+  </header>
+
+  <section class="audit-form">
+    <label for="pageURL">Page URL</label>
+    <input type="text" id="pageURL" placeholder="e.g. /joy-hoodie-story.html" />
+
+    <label><input type="checkbox" id="hasSchema" /> Schema Markup Added</label>
+    <label><input type="checkbox" id="hasMeta" /> Meta Title & Description</label>
+    <label><input type="checkbox" id="hasTags" /> Emotional Tags Applied</label>
+    <label><input type="checkbox" id="hasInternalLinks" /> Internal Links Present</label>
+    <label><input type="checkbox" id="isMobileFriendly" /> Mobile Usability Confirmed</label>
+    <label><input type="checkbox" id="isIndexed" /> Indexed in Search Console</label>
+    <label><input type="checkbox" id="hasFastLoad" /> Page Speed Under 2s</label>
+
+    <label for="auditNotes">Notes</label>
+    <textarea id="auditNotes" placeholder="e.g. Needs stronger emotional tag, add link to grief cluster..." rows="2"></textarea>
+
+    <button onclick="logAudit()">Log Audit</button>
+  </section>
+
+  <section id="auditLog" class="seo-log">
+    <h2>🗂️ Logged Page Audits</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Audit is ritual. Visibility is care. Launch with intention.</p>
+  </footer>
+
+  <script>
+    function logAudit() {
+      const url = document.getElementById("pageURL").value;
+      const schema = document.getElementById("hasSchema").checked ? "✅" : "❌";
+      const meta = document.getElementById("hasMeta").checked ? "✅" : "❌";
+      const tags = document.getElementById("hasTags").checked ? "✅" : "❌";
+      const links = document.getElementById("hasInternalLinks").checked ? "✅" : "❌";
+      const mobile = document.getElementById("isMobileFriendly").checked ? "✅" : "❌";
+      const indexed = document.getElementById("isIndexed").checked ? "✅" : "❌";
+      const speed = document.getElementById("hasFastLoad").checked ? "✅" : "❌";
+      const notes = document.getElementById("auditNotes").value;
+
+      const container = document.getElementById("auditLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${url}</h3>
+        <p><strong>Schema:</strong> ${schema}</p>
+        <p><strong>Meta:</strong> ${meta}</p>
+        <p><strong>Tags:</strong> ${tags}</p>
+        <p><strong>Internal Links:</strong> ${links}</p>
+        <p><strong>Mobile Friendly:</strong> ${mobile}</p>
+        <p><strong>Indexed:</strong> ${indexed}</p>
+        <p><strong>Speed:</strong> ${speed}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("pageURL").value = "";
+      document.getElementById("hasSchema").checked = false;
+      document.getElementById("hasMeta").checked = false;
+      document.getElementById("hasTags").checked = false;
+      document.getElementById("hasInternalLinks").checked = false;
+      document.getElementById("isMobileFriendly").checked = false;
+      document.getElementById("isIndexed").checked = false;
+      document.getElementById("hasFastLoad").checked = false;
+      document.getElementById("auditNotes").value = "";
+    }
+  </script>
+</body>
+</html>
