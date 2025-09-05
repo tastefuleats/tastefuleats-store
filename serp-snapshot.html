@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SERP Snapshot Panel — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="serp-snapshot dark-theme">
+
+  <header>
+    <h1>📈 SERP Snapshot Panel</h1>
+    <p class="tagline">See what the world sees. Every snippet is a signal of resonance.</p>
+  </header>
+
+  <section class="serp-form">
+    <label for="pageURL">Page URL</label>
+    <input type="text" id="pageURL" placeholder="e.g. https://emotionalmeals.com/peach-toast-recipe.html" />
+
+    <label for="serpTitle">SERP Title</label>
+    <input type="text" id="serpTitle" placeholder="e.g. Peach Toast for Soft Mornings — A Grief Ritual" />
+
+    <label for="metaDescription">Meta Description</label>
+    <textarea id="metaDescription" placeholder="e.g. A poetic breakfast ritual designed to soothe grief and awaken softness..." rows="2"></textarea>
+
+    <label for="snippetType">Rich Snippet Type</label>
+    <select id="snippetType">
+      <option>None</option>
+      <option>Recipe</option>
+      <option>Product</option>
+      <option>FAQ</option>
+      <option>Event</option>
+      <option>Review</option>
+    </select>
+
+    <label for="emotionalTone">Emotional Tone</label>
+    <input type="text" id="emotionalTone" placeholder="e.g. grief, joy, sanctuary" />
+
+    <label for="visualNotes">Visual Notes (optional)</label>
+    <textarea id="visualNotes" placeholder="e.g. Screenshot shows recipe stars, image thumbnail, mobile layout..." rows="2"></textarea>
+
+    <button onclick="logSERP()">Log SERP Snapshot</button>
+  </section>
+
+  <section id="serpLog" class="seo-log">
+    <h2>🗂️ Logged SERP Snapshots</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Visibility is reflection. Track it with clarity and care.</p>
+  </footer>
+
+  <script>
+    function logSERP() {
+      const url = document.getElementById("pageURL").value;
+      const title = document.getElementById("serpTitle").value;
+      const description = document.getElementById("metaDescription").value;
+      const snippet = document.getElementById("snippetType").value;
+      const tone = document.getElementById("emotionalTone").value;
+      const notes = document.getElementById("visualNotes").value;
+
+      const container = document.getElementById("serpLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>URL:</strong> ${url}</p>
+        <p><strong>Meta Description:</strong> ${description}</p>
+        <p><strong>Rich Snippet:</strong> ${snippet}</p>
+        <p><strong>Emotional Tone:</strong> ${tone}</p>
+        <p><strong>Visual Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("pageURL").value = "";
+      document.getElementById("serpTitle").value = "";
+      document.getElementById("metaDescription").value = "";
+      document.getElementById("snippetType").value = "None";
+      document.getElementById("emotionalTone").value = "";
+      document.getElementById("visualNotes").value = "";
+    }
+  </script>
+</body>
+</html>
