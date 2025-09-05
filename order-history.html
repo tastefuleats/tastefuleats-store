@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order History — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="order-history dark-theme">
+
+  <header>
+    <h1>📦 Order History</h1>
+    <p class="tagline">Every order is a ripple. Track with care.</p>
+  </header>
+
+  <section class="order-form">
+    <label for="orderID">Order ID</label>
+    <input type="text" id="orderID" placeholder="e.g. #TE20250905-001" />
+
+    <label for="customerName">Customer Name</label>
+    <input type="text" id="customerName" placeholder="e.g. Bryan" />
+
+    <label for="itemsOrdered">Items Ordered</label>
+    <textarea id="itemsOrdered" placeholder="e.g. JOY Hoodie (M, Moss), Radiance Tote" rows="3"></textarea>
+
+    <label for="orderTotal">Total ($)</label>
+    <input type="number" id="orderTotal" step="0.01" />
+
+    <label for="fulfillmentStatus">Fulfillment Status</label>
+    <select id="fulfillmentStatus">
+      <option>Pending</option>
+      <option>In Production</option>
+      <option>Shipped</option>
+      <option>Delivered</option>
+    </select>
+
+    <button onclick="logOrder()">Log Order</button>
+  </section>
+
+  <section id="orderLog" class="drop-log">
+    <h2>🗂️ Logged Orders</h2>
+    <!-- Orders will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Orders are echoes of impact.</p>
+  </footer>
+
+  <script>
+    function logOrder() {
+      const id = document.getElementById("orderID").value;
+      const name = document.getElementById("customerName").value;
+      const items = document.getElementById("itemsOrdered").value;
+      const total = document.getElementById("orderTotal").value;
+      const status = document.getElementById("fulfillmentStatus").value;
+
+      const container = document.getElementById("orderLog");
+      const block = document.createElement("div");
+      block.classList.add("drop-block");
+      block.innerHTML = `
+        <h3>${id}</h3>
+        <p><strong>Customer:</strong> ${name}</p>
+        <p><strong>Items:</strong> ${items}</p>
+        <p><strong>Total:</strong> $${parseFloat(total).toFixed(2)}</p>
+        <p><strong>Status:</strong> ${status}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("orderID").value = "";
+      document.getElementById("customerName").value = "";
+      document.getElementById("itemsOrdered").value = "";
+      document.getElementById("orderTotal").value = "";
+      document.getElementById("fulfillmentStatus").value = "Pending";
+    }
+  </script>
+</body>
+</html>
