@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editorial Review — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="editorial-review dark-theme">
+
+  <header>
+    <h1>📝 Editorial Review</h1>
+    <p class="tagline">Every story deserves care. Every vessel must resonate.</p>
+  </header>
+
+  <section class="submission-form">
+    <label for="storyTitle">Story Title</label>
+    <input type="text" id="storyTitle" placeholder="e.g. JOY Hoodie Story" />
+
+    <label for="authorName">Author Name</label>
+    <input type="text" id="authorName" placeholder="e.g. Bryan" />
+
+    <label for="emotionalTags">Emotional Tags</label>
+    <input type="text" id="emotionalTags" placeholder="e.g. joy, grief, ritual" />
+
+    <label for="storyExcerpt">Excerpt</label>
+    <textarea id="storyExcerpt" placeholder="Paste the first few paragraphs here..."></textarea>
+
+    <label for="fluencyScore">Emotional Fluency Score</label>
+    <input type="number" id="fluencyScore" min="0" max="10" />
+
+    <button onclick="approveStory()">Approve for Publishing</button>
+  </section>
+
+  <section id="approvedStories" class="review-log">
+    <h2>✅ Approved Stories</h2>
+    <!-- Approved stories will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Editorial review is emotional stewardship.</p>
+  </footer>
+
+  <script>
+    function approveStory() {
+      const title = document.getElementById("storyTitle").value;
+      const author = document.getElementById("authorName").value;
+      const tags = document.getElementById("emotionalTags").value;
+      const excerpt = document.getElementById("storyExcerpt").value;
+      const score = document.getElementById("fluencyScore").value;
+
+      const container = document.getElementById("approvedStories");
+      const block = document.createElement("div");
+      block.classList.add("review-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Author:</strong> ${author}</p>
+        <p><strong>Tags:</strong> ${tags}</p>
+        <p><strong>Fluency Score:</strong> ${score}/10</p>
+        <p><strong>Excerpt:</strong> ${excerpt}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("storyTitle").value = "";
+      document.getElementById("authorName").value = "";
+      document.getElementById("emotionalTags").value = "";
+      document.getElementById("storyExcerpt").value = "";
+      document.getElementById("fluencyScore").value = "";
+    }
+  </script>
+</body>
+</html>
