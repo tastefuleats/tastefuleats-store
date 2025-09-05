@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schema Generator — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="schema-generator dark-theme">
+
+  <header>
+    <h1>🧬 Schema Generator</h1>
+    <p class="tagline">Speak the language of search. Every schema is a signal of meaning.</p>
+  </header>
+
+  <section class="schema-form">
+    <label for="schemaType">Schema Type</label>
+    <select id="schemaType">
+      <option>Recipe</option>
+      <option>Product</option>
+      <option>Article</option>
+      <option>FAQ</option>
+      <option>Event</option>
+    </select>
+
+    <label for="schemaName">Name</label>
+    <input type="text" id="schemaName" placeholder="e.g. Peach Toast for Soft Mornings" />
+
+    <label for="schemaDescription">Description</label>
+    <textarea id="schemaDescription" placeholder="e.g. A grief-soothing breakfast ritual with peaches and warmth..." rows="3"></textarea>
+
+    <label for="schemaImage">Image URL</label>
+    <input type="text" id="schemaImage" placeholder="e.g. https://yourdomain.com/images/peach-toast.jpg" />
+
+    <label for="schemaURL">Page URL</label>
+    <input type="text" id="schemaURL" placeholder="e.g. https://emotionalmeals.com/peach-toast-recipe.html" />
+
+    <button onclick="generateSchema()">Generate JSON-LD</button>
+  </section>
+
+  <section id="schemaOutput" class="drop-log">
+    <h2>🧬 Generated Schema</h2>
+    <pre id="jsonPreview" style="white-space:pre-wrap; background:#2a2a2a; padding:1rem; border-radius:8px;"></pre>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Schema is emotional metadata. Generate with care.</p>
+  </footer>
+
+  <script>
+    function generateSchema() {
+      const type = document.getElementById("schemaType").value;
+      const name = document.getElementById("schemaName").value;
+      const description = document.getElementById("schemaDescription").value;
+      const image = document.getElementById("schemaImage").value;
+      const url = document.getElementById("schemaURL").value;
+
+      let schema = {
+        "@context": "https://schema.org",
+        "@type": type,
+        "name": name,
+        "description": description,
+        "image": image,
+        "url": url
+      };
+
+      document.getElementById("jsonPreview").textContent = JSON.stringify(schema, null, 2);
+
+      // Clear form (optional)
+      // document.getElementById("schemaName").value = "";
+      // document.getElementById("schemaDescription").value = "";
+      // document.getElementById("schemaImage").value = "";
+      // document.getElementById("schemaURL").value = "";
+    }
+  </script>
+</body>
+</html>
