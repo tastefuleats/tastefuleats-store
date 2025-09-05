@@ -2,82 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TastefulEats — Where Flavor Headlines Merch Drops</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>TastefulEats.store – Where Flavor Headlines Merch Drops</title>
+  <meta name="description" content="TastefulEats.store blends emotional recipes, bold food culture, and merch drops that echo what we crave, rebel against, and celebrate." />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fffaf4;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ffecd2;
+      padding: 3em 2em;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #6b4c3b;
+    }
+    .quadrants {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+      padding: 3em 2em;
+      background-color: #fdfaf7;
+    }
+    .quadrant {
+      background-color: #f4f1ee;
+      border-radius: 8px;
+      padding: 1.5em;
+      text-align: center;
+    }
+    .quadrant img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .quadrant h2 {
+      font-size: 1.4em;
+      margin-top: 1em;
+    }
+    .quadrant p {
+      font-size: 0.95em;
+      color: #555;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      padding: 3em 2em;
+      background-color: #fff;
+    }
+    .module {
+      background-color: #f3efea;
+      border-radius: 8px;
+      padding: 1.5em;
+      text-align: center;
+    }
+    .module img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .module h3 {
+      font-size: 1.3em;
+      margin-top: 1em;
+    }
+    .module p {
+      font-size: 0.95em;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 2em;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
 </head>
-<body class="homepage dark-theme">
+
+<body>
 
   <header>
-    <h1>🕯️ TastefulEats</h1>
-    <p class="tagline">Where flavor headlines merch drops.</p>
-    <nav>
-      <a href="earn.html">Earn</a>
-      <a href="ritual-calendar.html">Calendar</a>
-      <a href="cart.html">Cart</a>
-    </nav>
+    <h1>TASTEFULEATS</h1>
+    <p>Where Flavor Headlines Merch Drops</p>
   </header>
 
-  <section class="hero-banner">
-    <h2>✨ Emotional Merch & Recipes</h2>
-    <p>Every product is a vessel. Every story is a ritual.</p>
-  </section>
-
-  <section class="featured-recipes">
-    <h2>🍽️ CRAVE / GLOW / REBEL / CHILL</h2>
-    <div class="recipe-card">
-      <img src="images/pizza.jpg" alt="CRAVE Pizza" />
-      <h3>CRAVE</h3>
+  <section class="quadrants">
+    <div class="quadrant">
+      <img src="/assets/images/pizza.jpg" alt="Crave – Pizza" />
+      <h2>CRAVE</h2>
       <p>Discover the pizza that makes my heart skip a beat...</p>
     </div>
-    <div class="recipe-card">
-      <img src="images/salad.jpg" alt="GLOW Salad" />
-      <h3>GLOW</h3>
+    <div class="quadrant">
+      <img src="/assets/images/salad.jpg" alt="Glow – Salad" />
+      <h2>GLOW</h2>
       <p>A salad that brings pure joy with every bite</p>
     </div>
-    <div class="recipe-card">
-      <img src="images/fried-chicken.jpg" alt="REBEL Chicken" />
-      <h3>REBEL</h3>
+    <div class="quadrant">
+      <img src="/assets/images/fried-chicken.jpg" alt="Rebel – Fried Chicken" />
+      <h2>REBEL</h2>
       <p>Sometimes you just need to embrace the crispy...</p>
     </div>
-    <div class="recipe-card">
-      <img src="images/milkshake.jpg" alt="CHILL Milkshake" />
-      <h3>CHILL</h3>
+    <div class="quadrant">
+      <img src="/assets/images/milkshake.jpg" alt="Chill – Milkshake" />
+      <h2>CHILL</h2>
       <p>This milkshake is my go-to for pure bliss</p>
     </div>
   </section>
 
-  <section class="drop-zone">
-    <h2>🛍️ Drop Zone</h2>
-    <div class="merch-item">
-      <img src="images/joy-tee.jpg" alt="JOY Tee" />
-      <p><strong>JOY Tee</strong> — $28.00</p>
-      <button onclick="addToCart('JOY Tee', 28.00, 'images/joy-tee.jpg')">Add to Cart</button>
+  <section class="modules">
+    <div class="module">
+      <img src="/assets/images/joy-shirt.jpg" alt="Drop Zone – Joy Shirt" />
+      <h3>DROP ZONE</h3>
+      <p>This shirt isn’t just merch—it’s a mood. A wearable echo of joy.</p>
     </div>
-  </section>
-
-  <section class="daily-food-news">
-    <h2>📰 Daily Food News</h2>
-    <div class="news-item">
-      <img src="images/good-vibes-cap.jpg" alt="GOOD VIBES Cap" />
-      <p><strong>GOOD VIBES Cap</strong> — $22.00</p>
-      <p>What we eat says a lot about us. Here’s what’s new.</p>
-      <button onclick="addToCart('GOOD VIBES Cap', 22.00, 'images/good-vibes-cap.jpg')">Add to Cart</button>
+    <div class="module">
+      <img src="/assets/images/good-vibes-cap.jpg" alt="Daily Food News – Good Vibes Cap" />
+      <h3>DAILY FOOD NEWS</h3>
+      <p>What we eat says a lot about us. Here’s what’s new in food culture.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 TastefulEats. Emotion is infrastructure.</p>
+    <p>© 2025 TastefulEats.store. Built for flavor, feeling, and ritual.</p>
   </footer>
 
-  <script>
-    function addToCart(name, price, image) {
-      const product = { name, price, image };
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(product);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${name} added to cart.`);
-    }
-  </script>
 </body>
 </html>
