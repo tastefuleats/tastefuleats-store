@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="recipe-dashboard dark-theme">
+
+  <header>
+    <h1>🥣 Recipe Dashboard</h1>
+    <p class="tagline">Every recipe is a ritual. Let’s archive with care.</p>
+  </header>
+
+  <section class="recipe-form">
+    <label for="recipeTitle">Recipe Title</label>
+    <input type="text" id="recipeTitle" placeholder="e.g. Peach Toast for Soft Mornings" />
+
+    <label for="recipeImage">Upload Image</label>
+    <input type="file" id="recipeImage" accept="image/*" />
+
+    <label for="recipeIntro">Emotional Introduction</label>
+    <textarea id="recipeIntro" placeholder="e.g. This toast reminds me of my grandmother’s kitchen..." rows="3"></textarea>
+
+    <label for="ingredients">Ingredients</label>
+    <textarea id="ingredients" placeholder="List ingredients, one per line..." rows="4"></textarea>
+
+    <label for="instructions">Instructions</label>
+    <textarea id="instructions" placeholder="Step-by-step ritual..." rows="5"></textarea>
+
+    <label for="emotionalTags">Emotional Tags</label>
+    <input type="text" id="emotionalTags" placeholder="e.g. memory, softness, joy" />
+
+    <label for="merchTieIn">Merch Tie-In (optional)</label>
+    <input type="text" id="merchTieIn" placeholder="e.g. Radiance Tote, joy-hoodie-story.html" />
+
+    <button onclick="publishRecipe()">Publish Recipe</button>
+  </section>
+
+  <section id="recipeLog" class="drop-log">
+    <h2>🗂️ Published Recipes</h2>
+    <!-- Recipes will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Recipes are vessels. Publish with feeling.</p>
+  </footer>
+
+  <script>
+    function publishRecipe() {
+      const title = document.getElementById("recipeTitle").value;
+      const imageFile = document.getElementById("recipeImage").files[0];
+      const intro = document.getElementById("recipeIntro").value;
+      const ingredients = document.getElementById("ingredients").value;
+      const instructions = document.getElementById("instructions").value;
+      const tags = document.getElementById("emotionalTags").value;
+      const merch = document.getElementById("merchTieIn").value;
+
+      const container = document.getElementById("recipeLog");
+      const block = document.createElement("div");
+      block.classList.add("drop-block");
+
+      const imageURL = imageFile ? URL.createObjectURL(imageFile) : "";
+
+      block.innerHTML = `
+        ${imageURL ? `<img src="${imageURL}" alt="${title}" style="max-width:100%; border-radius:8px; margin-bottom:1rem;" />` : ""}
+        <h3>${title}</h3>
+        <p><strong>Intro:</strong> ${intro}</p>
+        <p><strong>Ingredients:</strong><br>${ingredients.replace(/\n/g, "<br>")}</p>
+        <p><strong>Instructions:</strong><br>${instructions.replace(/\n/g, "<br>")}</p>
+        <p><strong>Tags:</strong> ${tags}</p>
+        ${merch ? `<p><strong>Merch Tie-In:</strong> ${merch}</p>` : ""}
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("recipeTitle").value = "";
+      document.getElementById("recipeImage").value = "";
+      document.getElementById("recipeIntro").value = "";
+      document.getElementById("ingredients").value = "";
+      document.getElementById("instructions").value = "";
+      document.getElementById("emotionalTags").value = "";
+      document.getElementById("merchTieIn").value = "";
+    }
+  </script>
+</body>
+</html>
