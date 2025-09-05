@@ -1,0 +1,38 @@
+[
+  {
+    "id": "crumble-tee",
+    "title": "LET'S GET READY TO CRUMBLE TEE",
+    "price": 37,
+    "category": "Comfort Food",
+    "emotion": "Sweet",
+    "description": "Now you’re bringing the cookies.",
+    "image": "/assets/images/crumble-tee.jpg",
+    "contributor": "Bryan",
+    "drop": "Fall Cravings",
+    "status": "active"
+  },
+  {
+    "id": "game-point-sweatshirt",
+    "title": "GAME POINT SWEATSHIRT",
+    "price": 42,
+    "category": "Savory",
+    "emotion": "Focused",
+    "description": "Wind up for that knockout shot.",
+    "image": "/assets/images/game-point-sweatshirt.jpg",
+    "contributor": "Bryan",
+    "drop": "Fall Cravings",
+    "status": "active"
+  },
+  {
+    "id": "ketchup-tee",
+    "title": "JUST TRYING TO KETCHUP TEE",
+    "price": 35,
+    "category": "Comfort Food",
+    "emotion": "Playful",
+    "description": "Feast-worthy graphic for condiment lovers.",
+    "image": "/assets/images/ketchup-tee.jpg",
+    "contributor": "Bryan",
+    "drop": "Fall Cravings",
+    "status": "active"
+  }
+]
