@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integration Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="integration-dashboard dark-theme">
+
+  <header>
+    <h1>🔗 Integration Dashboard</h1>
+    <p class="tagline">Fulfillment is care. Payment is trust. Let’s connect with clarity.</p>
+  </header>
+
+  <section class="integration-form">
+    <label for="tapstitchKey">Tapstitch API Key</label>
+    <input type="text" id="tapstitchKey" placeholder="Paste your Tapstitch API key..." />
+
+    <label for="printfulKey">Printful API Key</label>
+    <input type="text" id="printfulKey" placeholder="Paste your Printful API key..." />
+
+    <label for="paypalClientID">PayPal Client ID</label>
+    <input type="text" id="paypalClientID" placeholder="Paste your PayPal Client ID..." />
+
+    <label for="paypalSecret">PayPal Secret</label>
+    <input type="password" id="paypalSecret" placeholder="Paste your PayPal Secret..." />
+
+    <button onclick="saveIntegration()">Save Integration Settings</button>
+  </section>
+
+  <section id="integrationLog" class="toolkit-content">
+    <h2>🗂️ Current Integration Status</h2>
+    <!-- Integration status will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Integration is emotional infrastructure. Protect it with care.</p>
+  </footer>
+
+  <script>
+    function saveIntegration() {
+      const tapstitch = document.getElementById("tapstitchKey").value;
+      const printful = document.getElementById("printfulKey").value;
+      const paypalID = document.getElementById("paypalClientID").value;
+      const paypalSecret = document.getElementById("paypalSecret").value;
+
+      const container = document.getElementById("integrationLog");
+      const block = document.createElement("div");
+      block.classList.add("toolkit-block");
+      block.innerHTML = `
+        <h3>Integration Status</h3>
+        <p><strong>Tapstitch:</strong> ${tapstitch ? "✅ Connected" : "❌ Missing Key"}</p>
+        <p><strong>Printful:</strong> ${printful ? "✅ Connected" : "❌ Missing Key"}</p>
+        <p><strong>PayPal:</strong> ${paypalID && paypalSecret ? "✅ Connected" : "❌ Missing Credentials"}</p>
+      `;
+      container.innerHTML = "";
+      container.appendChild(block);
+
+      // Clear form (optional)
+      // document.getElementById("tapstitchKey").value = "";
+      // document.getElementById("printfulKey").value = "";
+      // document.getElementById("paypalClientID").value = "";
+      // document.getElementById("paypalSecret").value = "";
+    }
+  </script>
+</body>
+</html>
