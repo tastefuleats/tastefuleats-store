@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOY Hoodie Story — TastefulEats</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="story-page dark-theme">
+
+  <header>
+    <h1>🧥 JOY Hoodie</h1>
+    <p class="tagline">This hoodie isn’t just warm—it remembers.</p>
+  </header>
+
+  <section class="story-content">
+    <img src="images/joy-hoodie.jpg" alt="JOY Hoodie" class="story-image" />
+    <audio controls>
+      <source src="audio/joy-hoodie-story.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <article>
+      <h2>🕯️ The Story</h2>
+      <p>
+        I wore this hoodie the day my sister came home from the hospital. It was oversized, fleeced, and smelled faintly of cedar and cinnamon from the candle I’d packed in my overnight bag. She said it looked like something you’d wear to a memory. I said that’s exactly what it was.
+      </p>
+      <p>
+        The JOY Hoodie is for those moments when warmth needs to be more than temperature. It’s for the quiet walks, the loud reunions, the days you need to feel held. It’s stitched with softness and story.
+      </p>
+    </article>
+
+    <div class="merch-details">
+      <p><strong>Style:</strong> Heavyweight Hidden Pocket Fleece Hoodie</p>
+      <p><strong>Price:</strong> $58.00</p>
+      <button onclick="addToCart('JOY Hoodie', 58.00, 'images/joy-hoodie.jpg')">Add to Cart</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Some garments carry memory. This one carries joy.</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price, image) {
+      const product = { name, price, image };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
+</body>
+</html>
