@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store — TastefulEats</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="store-page dark-theme">
+
+  <header>
+    <h1>🛍️ The Store</h1>
+    <p class="tagline">Quiet luxury. Emotional resonance. Every item is a vessel.</p>
+  </header>
+
+  <section class="store-grid">
+    <div class="product-card fade-in">
+      <img src="images/joy-hoodie.jpg" alt="JOY Hoodie" />
+      <h2>JOY Hoodie</h2>
+      <p class="price">$58.00</p>
+      <p class="emotion">Tag: joy, ritual</p>
+      <a href="joy-hoodie-story.html" class="cta-button">Read Story</a>
+      <button onclick="addToCart('JOY Hoodie', 58.00, 'images/joy-hoodie.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product-card fade-in">
+      <img src="images/radiance-tote.jpg" alt="Radiance Tote" />
+      <h2>Radiance Tote</h2>
+      <p class="price">$32.00</p>
+      <p class="emotion">Tag: memory, warmth</p>
+      <a href="peach-toast-recipe.html" class="cta-button">View Ritual</a>
+      <button onclick="addToCart('Radiance Tote', 32.00, 'images/radiance-tote.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- Add more products here as needed -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Luxury is quiet. Commerce is emotional.</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price, image) {
+      const product = { name, price, image };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
+</body>
+</html>
