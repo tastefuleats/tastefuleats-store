@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add New Product – Tasteful Eats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf8f3;
+      color: #333;
+      margin: 0;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+    form {
+      display: grid;
+      gap: 1em;
+      max-width: 600px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 0.5em;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      width: 100%;
+    }
+    button {
+      padding: 0.8em 1.5em;
+      font-family: 'Georgia', serif;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Add New Product</h1>
+  <form>
+    <label>Product Title</label>
+    <input type="text" name="title" />
+
+    <label>Price</label>
+    <input type="number" name="price" />
+
+    <label>Category</label>
+    <select name="category">
+      <option>Tees</option>
+      <option>Hoodies</option>
+      <option>Sweatshirts</option>
+    </select>
+
+    <label>Emotion Tag</label>
+    <select name="emotion">
+      <option>Comfort Food</option>
+      <option>Spicy</option>
+      <option>Sweet</option>
+      <option>Glow</option>
+      <option>Reverie</option>
+      <option>Savory</option>
+    </select>
+
+    <label>Contributor</label>
+    <input type="text" name="contributor" />
+
+    <label>Drop Name</label>
+    <input type="text" name="drop" />
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <label>Image Filename</label>
+    <input type="text" name="image" placeholder="e.g. crumble-tee.jpg" />
+
+    <button type="submit">Add Product</button>
+  </form>
+
+</body>
+</html>
