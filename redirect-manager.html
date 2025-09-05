@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirect Manager — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="redirect-manager dark-theme">
+
+  <header>
+    <h1>🚪 404 & Redirect Manager</h1>
+    <p class="tagline">No memory lost. No ritual broken. Redirect with care.</p>
+  </header>
+
+  <section class="redirect-form">
+    <label for="brokenURL">Broken or Retired URL</label>
+    <input type="text" id="brokenURL" placeholder="e.g. /grief-toast.html" />
+
+    <label for="redirectTarget">Redirect Target URL</label>
+    <input type="text" id="redirectTarget" placeholder="e.g. /peach-toast-recipe.html" />
+
+    <label for="emotionalTag">Emotional Tag</label>
+    <input type="text" id="emotionalTag" placeholder="e.g. grief, ritual, memory" />
+
+    <label for="reason">Redirect Reason</label>
+    <textarea id="reason" placeholder="e.g. Merged with peach toast ritual, grief cluster consolidation..." rows="2"></textarea>
+
+    <button onclick="logRedirect()">Log Redirect</button>
+  </section>
+
+  <section id="redirectLog" class="seo-log">
+    <h2>🗂️ Logged Redirects</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Redirects are emotional continuity. Track them with grace.</p>
+  </footer>
+
+  <script>
+    function logRedirect() {
+      const broken = document.getElementById("brokenURL").value;
+      const target = document.getElementById("redirectTarget").value;
+      const tag = document.getElementById("emotionalTag").value;
+      const reason = document.getElementById("reason").value;
+
+      const container = document.getElementById("redirectLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${broken} → ${target}</h3>
+        <p><strong>Tag:</strong> ${tag}</p>
+        <p><strong>Reason:</strong> ${reason}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("brokenURL").value = "";
+      document.getElementById("redirectTarget").value = "";
+      document.getElementById("emotionalTag").value = "";
+      document.getElementById("reason").value = "";
+    }
+  </script>
+</body>
+</html>
