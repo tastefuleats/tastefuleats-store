@@ -124,3 +124,70 @@ footer {
   background-color: #1a1a1a;
   color: #f5f5f5;
 }
+
+/* 🌍 Responsive Layout */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section h3 {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .partner-grid,
+  .earn-options,
+  .toolkit-content {
+    grid-template-columns: 1fr;
+  }
+
+  input, select, textarea, button {
+    font-size: 1rem;
+  }
+}
+
+/* 🫧 Accessibility Enhancements */
+:focus {
+  outline: 2px solid #ff6f61;
+  outline-offset: 2px;
+}
+a:focus, button:focus {
+  background-color: #e85c50;
+}
+
+/* 🌈 Emotional Accents */
+.autumn-theme {
+  background-color: #2b1f1a;
+  color: #fce8d5;
+}
+.spring-theme {
+  background-color: #eaf7ea;
+  color: #2a2a2a;
+}
+.spotlight {
+  border-left: 4px solid #ff6f61;
+  padding-left: 1rem;
+  background-color: #2a2a2a;
+}
+
+/* 🌀 Animation Utility */
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
