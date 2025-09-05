@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Analytics — TastefulEats</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="visual-analytics dark-theme">
+
+  <header>
+    <h1>📊 Visual Analytics Console</h1>
+    <p class="tagline">Emotional telemetry. Strategic clarity. See what resonates.</p>
+  </header>
+
+  <section class="chart-section">
+    <h2>🔍 Keyword Impressions vs Clicks</h2>
+    <canvas id="keywordChart" height="150"></canvas>
+
+    <h2>🔗 Internal Link Strength</h2>
+    <canvas id="linkChart" height="150"></canvas>
+
+    <h2>🧑‍🎓 Contributor Visibility</h2>
+    <canvas id="contributorChart" height="150"></canvas>
+
+    <h2>✅ Page Audit Completion</h2>
+    <canvas id="auditChart" height="150"></canvas>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Data is memory. Visualize with care.</p>
+  </footer>
+
+  <script>
+    // Keyword Chart
+    new Chart(document.getElementById("keywordChart"), {
+      type: "bar",
+      data: {
+        labels: ["Grief Recipes", "Soft Merch", "Ritual Breakfast", "Joy Hoodie"],
+        datasets: [
+          {
+            label: "Impressions",
+            data: [1200, 950, 800, 1100],
+            backgroundColor: "#6c5ce7"
+          },
+          {
+            label: "Clicks",
+            data: [300, 400, 250, 500],
+            backgroundColor: "#00cec9"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom" } }
+      }
+    });
+
+    // Link Strength Chart
+    new Chart(document.getElementById("linkChart"), {
+      type: "doughnut",
+      data: {
+        labels: ["Primary", "Supportive", "Seasonal", "Contributor"],
+        datasets: [{
+          data: [12, 18, 6, 4],
+          backgroundColor: ["#fd79a8", "#fab1a0", "#ffeaa7", "#74b9ff"]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom" } }
+      }
+    });
+
+    // Contributor Chart
+    new Chart(document.getElementById("contributorChart"), {
+      type: "bar",
+      data: {
+        labels: ["Bryan", "Maya", "Tariq", "Lena"],
+        datasets: [{
+          label: "Total Clicks",
+          data: [500, 320, 210, 150],
+          backgroundColor: "#55efc4"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Audit Completion Chart
+    new Chart(document.getElementById("auditChart"), {
+      type: "pie",
+      data: {
+        labels: ["Complete", "Missing Schema", "Missing Tags", "Unindexed"],
+        datasets: [{
+          data: [22, 3, 5, 2],
+          backgroundColor: ["#00b894", "#d63031", "#fdcb6e", "#0984e3"]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom" } }
+      }
+    });
+  </script>
+</body>
+</html>
