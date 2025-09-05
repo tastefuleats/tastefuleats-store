@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ads Panel — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ads-panel dark-theme">
+
+  <header>
+    <h1>📣 Ads Panel</h1>
+    <p class="tagline">Visibility is emotional architecture. Let’s place with care.</p>
+  </header>
+
+  <section class="ads-form">
+    <label for="adTitle">Ad Title</label>
+    <input type="text" id="adTitle" placeholder="e.g. Autumn Ritual Bundle" />
+
+    <label for="adType">Ad Type</label>
+    <select id="adType">
+      <option>Merch</option>
+      <option>Story</option>
+      <option>Seasonal Campaign</option>
+      <option>Contributor Spotlight</option>
+    </select>
+
+    <label for="adTag">Emotional Targeting Tag</label>
+    <input type="text" id="adTag" placeholder="e.g. grief, joy, ritual" />
+
+    <label for="adURL">Destination URL</label>
+    <input type="text" id="adURL" placeholder="e.g. /joy-hoodie-story.html" />
+
+    <button onclick="placeAd()">Place Ad</button>
+  </section>
+
+  <section id="adList" class="ads-log">
+    <h2>🗂️ Active Ads</h2>
+    <!-- Ads will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Ads are invitations. Place them with intention.</p>
+  </footer>
+
+  <script>
+    function placeAd() {
+      const title = document.getElementById("adTitle").value;
+      const type = document.getElementById("adType").value;
+      const tag = document.getElementById("adTag").value;
+      const url = document.getElementById("adURL").value;
+
+      const container = document.getElementById("adList");
+      const block = document.createElement("div");
+      block.classList.add("ad-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Type:</strong> ${type}</p>
+        <p><strong>Tag:</strong> ${tag}</p>
+        <p><strong>URL:</strong> <a href="${url}">${url}</a></p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("adTitle").value = "";
+      document.getElementById("adType").value = "Merch";
+      document.getElementById("adTag").value = "";
+      document.getElementById("adURL").value = "";
+    }
+  </script>
+</body>
+</html>
