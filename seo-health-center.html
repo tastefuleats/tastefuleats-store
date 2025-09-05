@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Health Center — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seo-health dark-theme">
+
+  <header>
+    <h1>🩺 SEO Health Center</h1>
+    <p class="tagline">Performance is protection. Accessibility is care.</p>
+  </header>
+
+  <section class="health-form">
+    <label for="pageURL">Page URL</label>
+    <input type="text" id="pageURL" placeholder="e.g. /peach-toast-recipe.html" />
+
+    <label for="loadTime">Load Time (ms)</label>
+    <input type="number" id="loadTime" />
+
+    <label for="accessibilityScore">Accessibility Score (0–100)</label>
+    <input type="number" id="accessibilityScore" min="0" max="100" />
+
+    <label for="securityNotes">Security Notes</label>
+    <textarea id="securityNotes" placeholder="e.g. No mixed content, HTTPS enforced, no exposed APIs..."></textarea>
+
+    <button onclick="logHealth()">Log Health Check</button>
+  </section>
+
+  <section id="healthLog" class="health-log">
+    <h2>🗂️ Logged Health Checks</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Technical health is emotional safety.</p>
+  </footer>
+
+  <script>
+    function logHealth() {
+      const url = document.getElementById("pageURL").value;
+      const time = document.getElementById("loadTime").value;
+      const score = document.getElementById("accessibilityScore").value;
+      const notes = document.getElementById("securityNotes").value;
+
+      const container = document.getElementById("healthLog");
+      const block = document.createElement("div");
+      block.classList.add("health-block");
+      block.innerHTML = `
+        <h3>${url}</h3>
+        <p><strong>Load Time:</strong> ${time} ms</p>
+        <p><strong>Accessibility:</strong> ${score}/100</p>
+        <p><strong>Security Notes:</strong> ${notes}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("pageURL").value = "";
+      document.getElementById("loadTime").value = "";
+      document.getElementById("accessibilityScore").value = "";
+      document.getElementById("securityNotes").value = "";
+    }
+  </script>
+</body>
+</html>
