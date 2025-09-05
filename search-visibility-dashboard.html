@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Visibility Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="search-dashboard dark-theme">
+
+  <header>
+    <h1>🔍 Search Visibility Command Center</h1>
+    <p class="tagline">Track resonance. Index with intention. Let the web reflect your sanctuaries.</p>
+  </header>
+
+  <section class="search-form">
+    <label for="googleVerification">Google Search Console Verification Tag</label>
+    <input type="text" id="googleVerification" placeholder="Paste your meta tag or TXT record..." />
+
+    <label for="bingVerification">Bing Webmaster Verification Tag</label>
+    <input type="text" id="bingVerification" placeholder="Paste your Bing verification..." />
+
+    <label for="directoryLinks">Directory Listings</label>
+    <textarea id="directoryLinks" placeholder="e.g. Yelp: yelp.com/tastefuleats, OpenTable: opentable.com/tastefuleats..." rows="3"></textarea>
+
+    <label for="backlinks">Backlinks & Referring Domains</label>
+    <textarea id="backlinks" placeholder="e.g. foodblog.com links to peach-toast-recipe.html with anchor 'ritual breakfast'" rows="4"></textarea>
+
+    <label for="seoNotes">Notes & Emotional SEO Observations</label>
+    <textarea id="seoNotes" placeholder="e.g. 'Grief recipes' cluster is ranking well in Canada..." rows="3"></textarea>
+
+    <button onclick="logSearchVisibility()">Log Visibility</button>
+  </section>
+
+  <section id="searchLog" class="seo-log">
+    <h2>🗂️ Logged Visibility Entries</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Visibility is emotional architecture. Track it with care.</p>
+  </footer>
+
+  <script>
+    function logSearchVisibility() {
+      const google = document.getElementById("googleVerification").value;
+      const bing = document.getElementById("bingVerification").value;
+      const directories = document.getElementById("directoryLinks").value;
+      const backlinks = document.getElementById("backlinks").value;
+      const notes = document.getElementById("seoNotes").value;
+
+      const container = document.getElementById("searchLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>Search Visibility Entry</h3>
+        <p><strong>Google Verification:</strong> ${google}</p>
+        <p><strong>Bing Verification:</strong> ${bing}</p>
+        <p><strong>Directories:</strong><br>${directories.replace(/\n/g, "<br>")}</p>
+        <p><strong>Backlinks:</strong><br>${backlinks.replace(/\n/g, "<br>")}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("googleVerification").value = "";
+      document.getElementById("bingVerification").value = "";
+      document.getElementById("directoryLinks").value = "";
+      document.getElementById("backlinks").value = "";
+      document.getElementById("seoNotes").value = "";
+    }
+  </script>
+</body>
+</html>
