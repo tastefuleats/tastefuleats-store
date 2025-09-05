@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyword Resonance Tracker — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="keyword-resonance dark-theme">
+
+  <header>
+    <h1>🔍 Keyword Resonance Tracker</h1>
+    <p class="tagline">Track emotional gravity. Every keyword is a signal of care.</p>
+  </header>
+
+  <section class="keyword-form">
+    <label for="keyword">Keyword or Phrase</label>
+    <input type="text" id="keyword" placeholder="e.g. grief recipes, soft merch, ritual breakfast" />
+
+    <label for="emotionalTag">Emotional Tag</label>
+    <input type="text" id="emotionalTag" placeholder="e.g. grief, joy, sanctuary" />
+
+    <label for="impressions">Impressions</label>
+    <input type="number" id="impressions" />
+
+    <label for="clicks">Clicks</label>
+    <input type="number" id="clicks" />
+
+    <label for="associatedPages">Associated Pages</label>
+    <textarea id="associatedPages" placeholder="e.g. peach-toast-recipe.html, joy-hoodie-story.html" rows="2"></textarea>
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" placeholder="e.g. Ranking well in Canada, high CTR on mobile..." rows="2"></textarea>
+
+    <button onclick="logKeyword()">Log Keyword</button>
+  </section>
+
+  <section id="keywordLog" class="seo-log">
+    <h2>🗂️ Logged Keywords</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Keywords are emotional coordinates. Track with clarity.</p>
+  </footer>
+
+  <script>
+    function logKeyword() {
+      const keyword = document.getElementById("keyword").value;
+      const tag = document.getElementById("emotionalTag").value;
+      const impressions = document.getElementById("impressions").value;
+      const clicks = document.getElementById("clicks").value;
+      const pages = document.getElementById("associatedPages").value;
+      const notes = document.getElementById("notes").value;
+
+      const container = document.getElementById("keywordLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${keyword}</h3>
+        <p><strong>Tag:</strong> ${tag}</p>
+        <p><strong>Impressions:</strong> ${impressions}</p>
+        <p><strong>Clicks:</strong> ${clicks}</p>
+        <p><strong>Pages:</strong><br>${pages.replace(/\n/g, "<br>")}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("keyword").value = "";
+      document.getElementById("emotionalTag").value = "";
+      document.getElementById("impressions").value = "";
+      document.getElementById("clicks").value = "";
+      document.getElementById("associatedPages").value = "";
+      document.getElementById("notes").value = "";
+    }
+  </script>
+</body>
+</html>
