@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal Linking Builder — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="link-builder dark-theme">
+
+  <header>
+    <h1>🔗 Internal Linking Builder</h1>
+    <p class="tagline">Weave emotional threads. Every link is a bridge between vessels.</p>
+  </header>
+
+  <section class="link-form">
+    <label for="sourcePage">Source Page</label>
+    <input type="text" id="sourcePage" placeholder="e.g. peach-toast-recipe.html" />
+
+    <label for="targetPage">Target Page</label>
+    <input type="text" id="targetPage" placeholder="e.g. joy-hoodie-story.html" />
+
+    <label for="anchorText">Anchor Text</label>
+    <input type="text" id="anchorText" placeholder="e.g. soft merch for grief rituals" />
+
+    <label for="emotionalContext">Emotional Context</label>
+    <input type="text" id="emotionalContext" placeholder="e.g. grief, joy, sanctuary" />
+
+    <label for="linkStrength">Link Strength</label>
+    <select id="linkStrength">
+      <option>Primary</option>
+      <option>Supportive</option>
+      <option>Seasonal</option>
+      <option>Contributor</option>
+    </select>
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" placeholder="e.g. Link appears in final paragraph of recipe intro..." rows="2"></textarea>
+
+    <button onclick="logLink()">Log Internal Link</button>
+  </section>
+
+  <section id="linkLog" class="seo-log">
+    <h2>🗂️ Logged Internal Links</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Links are emotional architecture. Build with intention.</p>
+  </footer>
+
+  <script>
+    function logLink() {
+      const source = document.getElementById("sourcePage").value;
+      const target = document.getElementById("targetPage").value;
+      const anchor = document.getElementById("anchorText").value;
+      const context = document.getElementById("emotionalContext").value;
+      const strength = document.getElementById("linkStrength").value;
+      const notes = document.getElementById("notes").value;
+
+      const container = document.getElementById("linkLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${anchor}</h3>
+        <p><strong>Source:</strong> ${source}</p>
+        <p><strong>Target:</strong> ${target}</p>
+        <p><strong>Context:</strong> ${context}</p>
+        <p><strong>Strength:</strong> ${strength}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("sourcePage").value = "";
+      document.getElementById("targetPage").value = "";
+      document.getElementById("anchorText").value = "";
+      document.getElementById("emotionalContext").value = "";
+      document.getElementById("linkStrength").value = "Primary";
+      document.getElementById("notes").value = "";
+    }
+  </script>
+</body>
+</html>
