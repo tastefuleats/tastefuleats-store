@@ -1,0 +1,16 @@
+[
+  {
+    "drop_name": "Fall Cravings",
+    "launch_date": "2025-09-01",
+    "theme": "Comfort, warmth, and flavor-forward nostalgia.",
+    "products": ["crumble-tee", "game-point-sweatshirt", "ketchup-tee"],
+    "status": "live"
+  },
+  {
+    "drop_name": "Glow Drop",
+    "launch_date": "2025-09-15",
+    "theme": "Softness, joy, and serotonin tones.",
+    "products": ["softness-hat", "feelings-tee"],
+    "status": "scheduled"
+  }
+]
