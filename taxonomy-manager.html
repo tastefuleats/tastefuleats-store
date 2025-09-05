@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxonomy Manager — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="taxonomy-manager dark-theme">
+
+  <header>
+    <h1>🔖 Taxonomy Manager</h1>
+    <p class="tagline">Emotion is metadata. Structure is memory.</p>
+  </header>
+
+  <section class="taxonomy-form">
+    <label for="tagName">Tag Name</label>
+    <input type="text" id="tagName" placeholder="e.g. joy, grief, ritual" />
+
+    <label for="tagType">Tag Type</label>
+    <select id="tagType">
+      <option>Emotion</option>
+      <option>Recipe Category</option>
+      <option>Merch Cluster</option>
+      <option>Seasonal Theme</option>
+    </select>
+
+    <label for="tagNotes">Notes</label>
+    <textarea id="tagNotes" placeholder="Context, usage, examples..."></textarea>
+
+    <button onclick="addTag()">Add Tag</button>
+  </section>
+
+  <section id="tagList" class="taxonomy-log">
+    <h2>🗂️ Active Tags</h2>
+    <!-- Tags will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Taxonomy is how we remember together.</p>
+  </footer>
+
+  <script>
+    function addTag() {
+      const name = document.getElementById("tagName").value;
+      const type = document.getElementById("tagType").value;
+      const notes = document.getElementById("tagNotes").value;
+
+      const container = document.getElementById("tagList");
+      const block = document.createElement("div");
+      block.classList.add("tag-block");
+      block.innerHTML = `
+        <h3>${name}</h3>
+        <p><strong>Type:</strong> ${type}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("tagName").value = "";
+      document.getElementById("tagType").value = "Emotion";
+      document.getElementById("tagNotes").value = "";
+    }
+  </script>
+</body>
+</html>
