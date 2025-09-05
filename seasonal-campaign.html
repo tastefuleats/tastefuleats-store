@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seasonal Campaign Builder — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seasonal-campaign dark-theme">
+
+  <header>
+    <h1>🍂 Seasonal Campaign Builder</h1>
+    <p class="tagline">Curate emotional constellations. Every season is a story.</p>
+  </header>
+
+  <section class="campaign-form">
+    <label for="campaignTitle">Campaign Title</label>
+    <input type="text" id="campaignTitle" placeholder="e.g. Autumn Rituals Drop" />
+
+    <label for="campaignTheme">Theme</label>
+    <select id="campaignTheme">
+      <option>Autumn</option>
+      <option>Winter</option>
+      <option>Spring</option>
+      <option>Summer</option>
+      <option>Grief</option>
+      <option>Joy</option>
+      <option>Sanctuary</option>
+    </select>
+
+    <label for="campaignStart">Start Date</label>
+    <input type="date" id="campaignStart" />
+
+    <label for="campaignEnd">End Date</label>
+    <input type="date" id="campaignEnd" />
+
+    <label for="featuredMerch">Featured Merch</label>
+    <input type="text" id="featuredMerch" placeholder="e.g. JOY Hoodie, Radiance Tote" />
+
+    <label for="featuredStories">Featured Stories</label>
+    <input type="text" id="featuredStories" placeholder="e.g. joy-hoodie-story.html, peach-toast-recipe.html" />
+
+    <label for="adSlots">Ad Slots</label>
+    <textarea id="adSlots" placeholder="e.g. Banner 1: grief-tote.jpg, Video 1: sanctuary.mp4..." rows="3"></textarea>
+
+    <label for="campaignNotes">Notes</label>
+    <textarea id="campaignNotes" placeholder="Contributor names, emotional tone, SEO tags..." rows="3"></textarea>
+
+    <button onclick="saveCampaign()">Save Campaign</button>
+  </section>
+
+  <section id="campaignLog" class="drop-log">
+    <h2>🗂️ Logged Campaigns</h2>
+    <!-- Campaigns will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Seasons are emotional architectures. Curate with care.</p>
+  </footer>
+
+  <script>
+    function saveCampaign() {
+      const title = document.getElementById("campaignTitle").value;
+      const theme = document.getElementById("campaignTheme").value;
+      const start = document.getElementById("campaignStart").value;
+      const end = document.getElementById("campaignEnd").value;
+      const merch = document.getElementById("featuredMerch").value;
+      const stories = document.getElementById("featuredStories").value;
+      const ads = document.getElementById("adSlots").value;
+      const notes = document.getElementById("campaignNotes").value;
+
+      const container = document.getElementById("campaignLog");
+      const block = document.createElement("div");
+      block.classList.add("drop-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Theme:</strong> ${theme}</p>
+        <p><strong>Dates:</strong> ${start} to ${end}</p>
+        <p><strong>Featured Merch:</strong> ${merch}</p>
+        <p><strong>Featured Stories:</strong> ${stories}</p>
+        <p><strong>Ad Slots:</strong> ${ads}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("campaignTitle").value = "";
+      document.getElementById("campaignTheme").value = "Autumn";
+      document.getElementById("campaignStart").value = "";
+      document.getElementById("campaignEnd").value = "";
+      document.getElementById("featuredMerch").value = "";
+      document.getElementById("featuredStories").value = "";
+      document.getElementById("adSlots").value = "";
+      document.getElementById("campaignNotes").value = "";
+    }
+  </script>
+</body>
+</html>
