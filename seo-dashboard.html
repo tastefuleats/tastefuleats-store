@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Dashboard — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seo-dashboard dark-theme">
+
+  <header>
+    <h1>📊 SEO Dashboard</h1>
+    <p class="tagline">Visibility begins with metadata. Let’s make it resonate.</p>
+  </header>
+
+  <section class="seo-form">
+    <label for="pageTitle">Page Title</label>
+    <input type="text" id="pageTitle" placeholder="e.g. JOY Hoodie Story — TastefulEats" />
+
+    <label for="metaDescription">Meta Description</label>
+    <textarea id="metaDescription" placeholder="e.g. A fleece hoodie stitched with memory, warmth, and ritual..." rows="3"></textarea>
+
+    <label for="keywords">Keywords</label>
+    <input type="text" id="keywords" placeholder="e.g. joy hoodie, emotional merch, memory clothing" />
+
+    <label for="internalLinks">Internal Links</label>
+    <textarea id="internalLinks" placeholder="e.g. Link to peach-toast-recipe.html, earn.html..." rows="2"></textarea>
+
+    <button onclick="saveSEO()">Save Metadata</button>
+  </section>
+
+  <section id="seoLog" class="seo-log">
+    <h2>🗂️ Saved SEO Entries</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Metadata is emotional scaffolding.</p>
+  </footer>
+
+  <script>
+    function saveSEO() {
+      const title = document.getElementById("pageTitle").value;
+      const description = document.getElementById("metaDescription").value;
+      const keywords = document.getElementById("keywords").value;
+      const links = document.getElementById("internalLinks").value;
+
+      const container = document.getElementById("seoLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Description:</strong> ${description}</p>
+        <p><strong>Keywords:</strong> ${keywords}</p>
+        <p><strong>Internal Links:</strong> ${links}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("pageTitle").value = "";
+      document.getElementById("metaDescription").value = "";
+      document.getElementById("keywords").value = "";
+      document.getElementById("internalLinks").value = "";
+    }
+  </script>
+</body>
+</html>
