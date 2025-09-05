@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ad Placement Manager — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ad-placement dark-theme">
+
+  <header>
+    <h1>📣 Ad Placement Manager</h1>
+    <p class="tagline">Place with intention. Every ad is an invitation to heal or earn.</p>
+  </header>
+
+  <section class="ad-form">
+    <label for="pageTarget">Target Page</label>
+    <input type="text" id="pageTarget" placeholder="e.g. peach-toast-recipe.html" />
+
+    <label for="bannerAd1">Banner Ad #1 (Image Upload)</label>
+    <input type="file" id="bannerAd1" accept="image/*" />
+
+    <label for="bannerAd2">Banner Ad #2 (Image Upload)</label>
+    <input type="file" id="bannerAd2" accept="image/*" />
+
+    <label for="bannerAd3">Banner Ad #3 (Image Upload)</label>
+    <input type="file" id="bannerAd3" accept="image/*" />
+
+    <label for="videoAd1">Video Ad #1 (Autoplay, muted)</label>
+    <input type="file" id="videoAd1" accept="video/mp4,video/webm" />
+
+    <label for="videoAd2">Video Ad #2 (Delayed 2 min autoplay)</label>
+    <input type="file" id="videoAd2" accept="video/mp4,video/webm" />
+
+    <label for="adNotes">Notes</label>
+    <textarea id="adNotes" placeholder="e.g. Contributor name, emotional targeting, affiliate link..." rows="3"></textarea>
+
+    <button onclick="logAdPlacement()">Save Ad Placement</button>
+  </section>
+
+  <section id="adLog" class="ads-log">
+    <h2>🗂️ Logged Ad Placements</h2>
+    <!-- Ad entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Ads are emotional architecture. Place with care.</p>
+  </footer>
+
+  <script>
+    function logAdPlacement() {
+      const page = document.getElementById("pageTarget").value;
+      const notes = document.getElementById("adNotes").value;
+
+      const banner1 = document.getElementById("bannerAd1").files[0];
+      const banner2 = document.getElementById("bannerAd2").files[0];
+      const banner3 = document.getElementById("bannerAd3").files[0];
+      const video1 = document.getElementById("videoAd1").files[0];
+      const video2 = document.getElementById("videoAd2").files[0];
+
+      const container = document.getElementById("adLog");
+      const block = document.createElement("div");
+      block.classList.add("ad-block");
+
+      block.innerHTML = `
+        <h3>${page}</h3>
+        <p><strong>Notes:</strong> ${notes}</p>
+        ${banner1 ? `<img src="${URL.createObjectURL(banner1)}" alt="Banner 1" style="max-width:100%; margin-bottom:1rem;" />` : ""}
+        ${banner2 ? `<img src="${URL.createObjectURL(banner2)}" alt="Banner 2" style="max-width:100%; margin-bottom:1rem;" />` : ""}
+        ${banner3 ? `<img src="${URL.createObjectURL(banner3)}" alt="Banner 3" style="max-width:100%; margin-bottom:1rem;" />` : ""}
+        ${video1 ? `<video src="${URL.createObjectURL(video1)}" autoplay muted loop style="width:100%; margin-bottom:1rem;"></video>` : ""}
+        ${video2 ? `<video id="delayedVideo" src="${URL.createObjectURL(video2)}" muted style="width:100%; margin-bottom:1rem;"></video>` : ""}
+      `;
+      container.appendChild(block);
+
+      if (video2) {
+        setTimeout(() => {
+          const delayedVideo = document.getElementById("delayedVideo");
+          delayedVideo.play();
+        }, 120000); // 2 minutes
+      }
+
+      // Clear form
+      document.getElementById("pageTarget").value = "";
+      document.getElementById("bannerAd1").value = "";
+      document.getElementById("bannerAd2").value = "";
+      document.getElementById("bannerAd3").value = "";
+      document.getElementById("videoAd1").value = "";
+      document.getElementById("videoAd2").value = "";
+      document.getElementById("adNotes").value = "";
+    }
+  </script>
+</body>
+</html>
