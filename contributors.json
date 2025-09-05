@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Bryan",
+    "capsule": "Fall Cravings",
+    "bio": "Bryan curates flavor-forward merch rooted in memory, humor, and emotional clarity.",
+    "products": ["crumble-tee", "game-point-sweatshirt", "ketchup-tee"],
+    "launch_date": "2025-09-01"
+  },
+  {
+    "name": "Amina",
+    "capsule": "Glow Drop",
+    "bio": "Amina designs softness as resistance. Her capsule is built for joy, sun, and quiet power.",
+    "products": ["softness-hat", "feelings-tee"],
+    "launch_date": "2025-09-15"
+  }
+]
