@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributor SEO Tracker — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="contributor-seo dark-theme">
+
+  <header>
+    <h1>🧑‍🎓 Contributor SEO Tracker</h1>
+    <p class="tagline">Visibility is equity. Track who’s resonating and reward with care.</p>
+  </header>
+
+  <section class="contributor-form">
+    <label for="contributorName">Contributor Name</label>
+    <input type="text" id="contributorName" placeholder="e.g. Bryan" />
+
+    <label for="linkedPages">Linked Pages</label>
+    <textarea id="linkedPages" placeholder="e.g. peach-toast-recipe.html, joy-hoodie-story.html" rows="2"></textarea>
+
+    <label for="impressions">Total Impressions</label>
+    <input type="number" id="impressions" />
+
+    <label for="clicks">Total Clicks</label>
+    <input type="number" id="clicks" />
+
+    <label for="backlinks">Backlinks Earned</label>
+    <textarea id="backlinks" placeholder="e.g. foodblog.com links to joy-hoodie-story.html" rows="2"></textarea>
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" placeholder="e.g. High CTR on grief hoodie story, featured in newsletter..." rows="2"></textarea>
+
+    <button onclick="logContributor()">Log Contributor Impact</button>
+  </section>
+
+  <section id="contributorLog" class="seo-log">
+    <h2>🗂️ Logged Contributor Visibility</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Visibility is voice. Equity is earned. Track with clarity.</p>
+  </footer>
+
+  <script>
+    function logContributor() {
+      const name = document.getElementById("contributorName").value;
+      const pages = document.getElementById("linkedPages").value;
+      const impressions = document.getElementById("impressions").value;
+      const clicks = document.getElementById("clicks").value;
+      const backlinks = document.getElementById("backlinks").value;
+      const notes = document.getElementById("notes").value;
+
+      const container = document.getElementById("contributorLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${name}</h3>
+        <p><strong>Pages:</strong><br>${pages.replace(/\n/g, "<br>")}</p>
+        <p><strong>Impressions:</strong> ${impressions}</p>
+        <p><strong>Clicks:</strong> ${clicks}</p>
+        <p><strong>Backlinks:</strong><br>${backlinks.replace(/\n/g, "<br>")}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("contributorName").value = "";
+      document.getElementById("linkedPages").value = "";
+      document.getElementById("impressions").value = "";
+      document.getElementById("clicks").value = "";
+      document.getElementById("backlinks").value = "";
+      document.getElementById("notes").value = "";
+    }
+  </script>
+</body>
+</html>
