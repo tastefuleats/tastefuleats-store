@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Intent Mapper — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="search-intent dark-theme">
+
+  <header>
+    <h1>🧠 Search Intent Mapper</h1>
+    <p class="tagline">Track the questions people whisper. Map them to meaning.</p>
+  </header>
+
+  <section class="intent-form">
+    <label for="query">Search Query</label>
+    <input type="text" id="query" placeholder="e.g. what hoodie helps me feel held" />
+
+    <label for="intentType">Intent Type</label>
+    <select id="intentType">
+      <option>Informational</option>
+      <option>Transactional</option>
+      <option>Emotional</option>
+      <option>Local</option>
+      <option>Seasonal</option>
+    </select>
+
+    <label for="associatedPage">Associated Page</label>
+    <input type="text" id="associatedPage" placeholder="e.g. joy-hoodie-story.html" />
+
+    <label for="schemaType">Schema Type</label>
+    <select id="schemaType">
+      <option>Article</option>
+      <option>Product</option>
+      <option>Recipe</option>
+      <option>FAQ</option>
+      <option>Event</option>
+    </select>
+
+    <label for="emotionalTags">Emotional Tags</label>
+    <input type="text" id="emotionalTags" placeholder="e.g. joy, grief, ritual" />
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" placeholder="e.g. High mobile CTR, shows up in voice search..." rows="2"></textarea>
+
+    <button onclick="logIntent()">Log Search Intent</button>
+  </section>
+
+  <section id="intentLog" class="seo-log">
+    <h2>🗂️ Logged Search Intents</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Intent is emotional gravity. Map it with care.</p>
+  </footer>
+
+  <script>
+    function logIntent() {
+      const query = document.getElementById("query").value;
+      const type = document.getElementById("intentType").value;
+      const page = document.getElementById("associatedPage").value;
+      const schema = document.getElementById("schemaType").value;
+      const tags = document.getElementById("emotionalTags").value;
+      const notes = document.getElementById("notes").value;
+
+      const container = document.getElementById("intentLog");
+      const block = document.createElement("div");
+      block.classList.add("seo-block");
+      block.innerHTML = `
+        <h3>${query}</h3>
+        <p><strong>Intent Type:</strong> ${type}</p>
+        <p><strong>Associated Page:</strong> ${page}</p>
+        <p><strong>Schema:</strong> ${schema}</p>
+        <p><strong>Tags:</strong> ${tags}</p>
+        <p><strong>Notes:</strong> ${notes}</p>
+      `;
+      container.prepend(block);
+
+      // Clear form
+      document.getElementById("query").value = "";
+      document.getElementById("intentType").value = "Informational";
+      document.getElementById("associatedPage").value = "";
+      document.getElementById("schemaType").value = "Article";
+      document.getElementById("emotionalTags").value = "";
+      document.getElementById("notes").value = "";
+    }
+  </script>
+</body>
+</html>
