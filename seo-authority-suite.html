@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Authority Suite — TastefulEats</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="seo-authority dark-theme">
+
+  <header>
+    <h1>📡 SEO Authority Suite</h1>
+    <p class="tagline">Build trust. Signal expertise. Let emotion lead the algorithm.</p>
+  </header>
+
+  <section class="authority-form">
+    <label for="pageName">Page Name</label>
+    <input type="text" id="pageName" placeholder="e.g. joy-hoodie-story.html" />
+
+    <label for="authorCredibility">Author Credibility</label>
+    <input type="text" id="authorCredibility" placeholder="e.g. Bryan — emotional commerce architect" />
+
+    <label for="aiReadability">AI Readability Score (0–100)</label>
+    <input type="number" id="aiReadability" min="0" max="100" />
+
+    <label for="socialSignals">Social Signals</label>
+    <textarea id="socialSignals" placeholder="e.g. 120 shares on Instagram, 45 saves on Pinterest..."></textarea>
+
+    <button onclick="logAuthority()">Log Authority</button>
+  </section>
+
+  <section id="authorityLog" class="authority-log">
+    <h2>🗂️ Logged Authority Signals</h2>
+    <!-- Entries will appear here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TastefulEats. Authority is earned through resonance.</p>
+  </footer>
+
+  <script>
+    function logAuthority() {
+      const page = document.getElementById("pageName").value;
+      const credibility = document.getElementById("authorCredibility").value;
+      const readability = document.getElementById("aiReadability").value;
+      const signals = document.getElementById("socialSignals").value;
+
+      const container = document.getElementById("authorityLog");
+      const block = document.createElement("div");
+      block.classList.add("authority-block");
+      block.innerHTML = `
+        <h3>${page}</h3>
+        <p><strong>Author:</strong> ${credibility}</p>
+        <p><strong>AI Readability:</strong> ${readability}/100</p>
+        <p><strong>Social Signals:</strong> ${signals}</p>
+      `;
+      container.appendChild(block);
+
+      // Clear form
+      document.getElementById("pageName").value = "";
+      document.getElementById("authorCredibility").value = "";
+      document.getElementById("aiReadability").value = "";
+      document.getElementById("socialSignals").value = "";
+    }
+  </script>
+</body>
+</html>
