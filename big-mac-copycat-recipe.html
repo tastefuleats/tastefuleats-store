@@ -3,14 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Big Mac Copycat Recipe | TastefulEats.store</title>
-  <meta name="description" content="This Big Mac copycat stacks flavor, nostalgia, and secret sauce swagger. A TastefulEats.store remix for festival foodies and late-night legends." />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <title>Big Mac Copycat Recipe | TastefulEATERS</title>
+  <meta name="description" content="This Big Mac copycat stacks flavor, nostalgia, and secret sauce swagger. A TastefulEATERS remix for festival foodies and late-night legends." />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fffaf4;
+      color: #3a2e2e;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #ff9a3c, #ff6f3c);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: bold;
+    }
+    .story, .ingredients, .instructions, .merch {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .story h2, .ingredients h2, .instructions h2, .merch h2 {
+      font-family: 'Luckiest Guy', cursive;
+      margin-top: 0;
+      color: #ff6f3c;
+    }
+    .story p {
+      font-style: italic;
+    }
+    .ingredients ul, .instructions ol {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+    .product-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product-card {
+      background: #fff3e0;
+      padding: 1rem;
+      border-radius: 12px;
+      width: 30%;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .product-card h3 {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .product-card button {
+      background: #ff6f3c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Big Mac Copycat</h1>
-    <p class="subtitle">Stacked Nostalgia. Secret Sauce Swagger.</p>
+    <h1>TastefulEATERS</h1>
+    <p>Where Flavor Headlines Merch Drops</p>
     <nav>
       <a href="/store.html">Shop Merch</a> |
       <a href="/recipes.html">More Recipes</a> |
@@ -19,17 +111,21 @@
   </header>
 
   <section class="story">
-    <h2>The Story Behind the Recipe</h2>
+    <h2>Big Mac Copycat</h2>
     <p>
       The Big Mac isn’t just a burger—it’s a cultural artifact. I first had one at a mall food court, wearing jelly bracelets and sneaking fries between shifts at Hot Topic. Two patties, three buns, pickles, lettuce, and that sauce. It was messy, iconic, and weirdly comforting. Like a hug from someone who still listens to pop-punk.
-
+    </p>
+    <p>
       Years later, I craved that same chaos—but with better ingredients and way more flair. I wanted the Big Mac, but I wanted it on my terms. Toasted buns, juicy patties, and a sauce that slaps harder than nostalgia. I wanted a burger that could headline a brunch or shut down a rooftop party.
-
+    </p>
+    <p>
       So I built this copycat. It’s got the layers, the crunch, the sauce—but it’s elevated. The patties are seasoned with garlic and onion powder. The buns are buttered and toasted. The sauce? Mayo, ketchup, relish, mustard, vinegar, paprika, and attitude. It’s not just a copy—it’s a remix.
-
+    </p>
+    <p>
       I’ve served it at backyard hangs, festival pre-games, and chaotic kitchen dance parties. I’ve stacked it with jalapeños, swapped the middle bun for hash browns, and even turned it into sliders. Every time, it hits. Every time, someone says, “This is better than the original.”
-
-      So here it is. The Big Mac, TastefulEats.store style. Stacked, sauced, and ready to flex. Serve it loud. Eat it proud. And don’t forget the playlist—this burger deserves a soundtrack.
+    </p>
+    <p>
+      So here it is. The Big Mac, TastefulEATERS style. Stacked, sauced, and ready to flex. Serve it loud. Eat it proud. And don’t forget the playlist—this burger deserves a soundtrack.
     </p>
   </section>
 
@@ -69,7 +165,7 @@
   </section>
 
   <section class="merch">
-    <h2>Featured Merch from TastefulEats.store</h2>
+    <h2>Featured Merch</h2>
     <div class="product-grid">
       <div class="product-card">
         <img src="assets/images/mac-tee.jpg" alt="Mac Tee" />
@@ -96,7 +192,7 @@
   </section>
 
   <footer>
-    <p>© 2025 TastefulEats.store — Where flavor meets festival.</p>
+    <p>© 2025 TastefulEATERS — Built for flavor, feeling, and ritual.</p>
   </footer>
 </body>
 </html>
