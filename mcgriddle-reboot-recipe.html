@@ -1,91 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sweet, Savory, Unhinged: McGriddle Remix for Brunch Rebels | TastefulEats.store</title>
-  <meta name="description" content="This McGriddle reboot is sticky, savory, and engineered for brunch rebels. A TastefulEats.store remix for syrup lovers and sandwich freaks." />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet, Savory, Unhinged: McGriddle Remix for Brunch Rebels | TastefulEaters.com</title>
+  <meta name="description" content="A sticky-salty breakfast manifesto: maple pancake buns, sausage, bacon, and a runny-yolk egg that drips with intent. TastefulEaters.com delivers the McGriddle remix for brunch rebels." />
+  <link rel="canonical" href="https://www.tastefuleaters.com/recipes/mcgriddle-remix" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Sweet, Savory, Unhinged: McGriddle Remix for Brunch Rebels" />
+  <meta property="og:description" content="Maple pancake buns, sausage, bacon, cheese, and a runny egg—stacked like a small riot that tastes like home." />
+  <meta property="og:url" content="https://www.tastefuleaters.com/recipes/mcgriddle-remix" />
+  <meta property="og:image" content="https://www.tastefuleaters.com/assets/images/recipes/mcgriddle/hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sweet, Savory, Unhinged: McGriddle Remix for Brunch Rebels" />
+  <meta name="twitter:description" content="A breakfast sandwich that forgives your night and blesses your morning." />
+  <meta name="twitter:image" content="https://www.tastefuleaters.com/assets/images/recipes/mcgriddle/hero.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #ececec;
+      --muted: #b7b7b7;
+      --accent: #c63d2f;
+      --card: #161616;
+      --border: #262626;
+      --link: #ffffff;
+      --gold: #e1a948;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; }
+    a { color: var(--link); text-decoration: none; }
+    header { background: #0b0b0b; padding: 32px 24px; border-bottom: 1px solid var(--border); }
+    header .brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    header h1 { margin: 0; font-size: 2rem; letter-spacing: 0.3px; }
+    header .subtitle { margin: 6px 0 16px; color: var(--muted); }
+    nav a { margin-right: 14px; font-weight: 600; }
+    main { max-width: 980px; margin: 32px auto; padding: 0 24px; }
+    h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.6rem; }
+    .story p { line-height: 1.8; margin: 0 0 16px; }
+    .hero { width: 100%; border-radius: 10px; display: block; margin: 8px 0 24px; border: 1px solid var(--border); }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 24px; }
+    .meta .card { background: var(--card); padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+    .meta .label { color: var(--muted); font-size: 0.85rem; }
+    .meta .value { font-weight: 700; margin-top: 4px; }
+
+    .ingredients, .instructions { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .ingredients ul { list-style: square; padding-left: 20px; }
+    .ingredients li, .instructions li { margin: 8px 0; }
+    .instructions ol { padding-left: 20px; }
+    .tip { background: #121212; border: 1px dashed var(--border); border-radius: 8px; padding: 12px; margin-top: 12px; color: var(--muted); }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+
+    .merch { margin-top: 28px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .product-card img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .product-card h3 { margin: 10px 0 6px; font-size: 1rem; color: #fff; letter-spacing: 0.4px; }
+    .product-card p { margin: 6px 0; color: var(--muted); }
+    .product-card .price { color: var(--text); font-weight: 700; }
+    .product-card .actions { margin-top: 10px; display: flex; gap: 8px; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    footer { background: #0b0b0b; color: var(--muted); border-top: 1px solid var(--border); text-align: center; padding: 24px; margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      .meta { grid-template-columns: 1fr; }
+      .product-grid, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Structured data: Recipe -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Sweet, Savory, Unhinged: McGriddle Remix",
+    "description": "Maple pancake buns, sausage, bacon, cheese, and a runny egg stacked like a small riot that tastes like home.",
+    "author": { "@type": "Person", "name": "Bryan Stewart" },
+    "publisher": { "@type": "Organization", "name": "TastefulEaters.com" },
+    "datePublished": "2025-12-10",
+    "recipeCategory": "Breakfast",
+    "recipeCuisine": "American",
+    "keywords": "McGriddle copycat, maple pancake buns, breakfast sandwich, sausage egg cheese",
+    "image": [
+      "https://www.tastefuleaters.com/assets/images/recipes/mcgriddle/hero.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/mcgriddle/process-1.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/mcgriddle/process-2.jpg"
+    ],
+    "recipeYield": "2 sandwiches",
+    "prepTime": "PT20M",
+    "cookTime": "PT20M",
+    "totalTime": "PT40M",
+    "recipeIngredient": [
+      "1 cup pancake mix",
+      "1/2 cup milk (or water)",
+      "2 tbsp maple syrup (plus more for drizzling)",
+      "1 tbsp neutral oil or melted butter (for the batter)",
+      "2 sausage patties",
+      "2 slices bacon",
+      "2 large eggs",
+      "2 slices cheddar cheese (optional)",
+      "Butter for cooking",
+      "Pinch of kosher salt & cracked black pepper"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Make batter with pancake mix, milk, maple syrup, and a splash of oil/butter. Rest 5 minutes." },
+      { "@type": "HowToStep", "text": "Cook small pancake rounds in butter until golden; keep warm." },
+      { "@type": "HowToStep", "text": "Cook sausage patties and bacon until crisp at the edges." },
+      { "@type": "HowToStep", "text": "Fry eggs to desired doneness (runny yolk recommended). Season lightly." },
+      { "@type": "HowToStep", "text": "Stack: pancake bun, sausage, cheese, egg, bacon, pancake bun." },
+      { "@type": "HowToStep", "text": "Drizzle with warm maple syrup. Serve immediately." }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I get syrup flavor inside the buns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add maple syrup directly to the batter and brush warm syrup over the pancakes while they rest so it absorbs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make this vegetarian?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes—use plant-based sausage and swap bacon for crispy mushroom strips or tempeh."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Best cheese for melt and bite?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cheddar for bite, American for perfect melt, or smoked gouda for depth. Pick your mood."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Sweet, Savory, Unhinged</h1>
-    <p class="subtitle">McGriddle Remix for Brunch Rebels</p>
-    <nav>
-      <a href="/store.html">Shop Merch</a> |
-      <a href="/recipes.html">More Recipes</a> |
-      <a href="/contributors.html">Meet the Makers</a>
+  <header role="banner" aria-label="TastefulEaters.com header">
+    <div class="brand">
+      <h1>TastefulEaters.com</h1>
+      <span class="subtitle">Sweet, Savory, Unhinged — McGriddle Remix for Brunch Rebels</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/contributors">Contributors</a>
     </nav>
   </header>
 
-  <section class="story">
-    <h2>The Story Behind the Recipe</h2>
-    <p>
-      The McGriddle is chaos in sandwich form. I first had one on a road trip at 6AM, glitter still stuck to my cheek, half-asleep and fully starving. It was sweet, salty, sticky, and somehow perfect. Like breakfast and dessert had a messy love child.
+  <main id="content">
+    <article>
+      <img class="hero" src="/assets/images/recipes/mcgriddle/hero.jpg" alt="McGriddle remix stacked with maple pancake buns, sausage, bacon, egg, and cheese with syrup drip." />
 
-      But the drive-thru version started to feel flat. Too processed, not enough vibe. So I made my own. Not to copy—but to unleash it. To build a McGriddle that slaps harder, drips louder, and feeds the brunch rebellion.
+      <section class="meta" aria-label="Recipe meta">
+        <div class="card">
+          <div class="label">Author</div>
+          <div class="value">Bryan Stewart</div>
+        </div>
+        <div class="card">
+          <div class="label">Time</div>
+          <div class="value">40 minutes</div>
+        </div>
+        <div class="card">
+          <div class="label">Yield</div>
+          <div class="value">2 sandwiches</div>
+        </div>
+      </section>
 
-      This version starts with maple pancake buns—yes, buns made of pancakes. Then comes the sausage patty, crispy bacon, and a fried egg with a yolk that knows how to run. It’s stacked, sticky, and unapologetically indulgent. You can add cheese, hot sauce, or glitter if you’re feeling bold.
+      <section class="story" aria-label="Narrative">
+        <h2>The story behind the recipe</h2>
+        <p>
+          Morning isn’t always gentle. Sometimes it shows up with glitter still glued to your cheekbone, a bruise you can’t explain, and a playlist that overslept. You stand there in a kitchen that looks like the aftermath of a good decision made too late, and you need something that forgives without lecturing. That’s how the sandwich found me—six in the morning, highway humming like a lullaby for the unrepentant, syrup lighting up the edge of a day I didn’t earn but was willing to take.
+        </p>
+        <p>
+          The drive‑thru made the promise: sweet meets salty, breakfast meets swagger. It worked, until it didn’t. Until the sweetness felt painted on, the salt showed up without depth, and the whole thing read like a copy of a copy, the corners sanded down for mass appeal. Convenience has a way of erasing personality. So I rebuilt it—not to imitate, but to unhinge politely. To make a morning sandwich that laughs at moderation and still knows what it’s doing.
+        </p>
+        <p>
+          Start with the buns. Not bread—buns made of pancakes, because sometimes you need chaos to carry you. Mix batter with a splash of maple syrup so the sweetness isn’t just a drizzle on top; it’s written into the grain. Let it rest for five minutes while the skillet warms and the butter threatens to become religion. Cook small rounds until the edges go lacy and the surface freckles. Flip like you mean it. Don’t press. Pancakes are not a negotiation; they’re a soft declaration.
+        </p>
+        <p>
+          The sausages need heat and honesty. Sizzle them in a pan where butter has stories, where the sound turns into a rhythm that keeps your hands moving. Crisp the edges until they flirt with the line between golden and defiant. Bacon is the loud friend who still shows up with tenderness—cook it until it offers a shatter and a chew, a yes and a maybe, an aftertaste that lingers just long enough to be remembered.
+        </p>
+        <p>
+          Eggs decide the mood. A runny yolk is a confession—a drip that says you’re willing to be messy for flavor. Crack it into the skillet, salt with a pinch that knows restraint, and nudge the edges so they curl into a map of your morning. Slide it out when the center glows like the inside of a secret. If you need stability, cook it firm; if you need mercy, let it run.
+        </p>
+        <p>
+          Cheese is diplomacy. Cheddar brings bite with a backbone; American melts like a peace treaty signed by hunger and heat. Smoked gouda turns the whole thing into a memory from a campfire you never attended but somehow recall. Lay it over the sausage while the pan is still speaking, let it slacken and seep into the folds. Don’t rush melt; it has rules and it keeps them.
+        </p>
+        <p>
+          Assemble like you’re building a case for joy: pancake bun down, glossy from a buttered kiss; sausage crowned with cheese; egg set like a sun with gravity; bacon spelling your name in crisp consonants; pancake bun up top, soft enough to make you believe you deserve this. Press gently, not like a judge, more like a conspirator. When syrup shows up, it should be warm and patient. Drizzle—not dump. Let it find seams and edges, let it decide where to stay. This sandwich doesn’t need a flood; it needs a map made of maple.
+        </p>
+        <p>
+          I’ve eaten it on rooftops where the city breathed like a dragon that finally decided to nap. I’ve eaten it after long flights when time forgot to act normal. I’ve eaten it at kitchen counters where the world went quiet just long enough for butter to matter more than ambition. I’ve made plant‑based versions with mushroom sausage and tempeh bacon when the week needed a reset, and I’ve added jalapeños when the quiet needed to be interrupted. Every time, it landed. Every time, someone said, “This is better than the original,” and what they meant was: this one remembers who you are.
+        </p>
+        <p>
+          Failure belongs at breakfast too. Pancakes tough because you stirred like you were filing a complaint. Sausage dry because you panicked and turned the heat into punishment. Bacon limp because you tried to multitask a feeling. Eggs overdone because you didn’t trust the glow. Syrup pooling without purpose because the stack was cold. All fixable. You learn to stir until just combined, to cook in heat that listens, to pull pans off the flame when they’ve said enough, to warm the plate so the sandwich doesn’t have to fight the room.
+        </p>
+        <p>
+          There’s a ritual to the syrup. Brush a little on the inside of the buns while they rest, like sending a love note where only the sandwich can read it. Keep more warming on the stove—a low whisper, not a boil—and give a final drizzle right before you serve. You’re not making dessert; you’re balancing a morning with a soft edge. Salt and sweet weren’t born enemies. They’re dance partners who show up better when you let them take turns.
+        </p>
+        <p>
+          Breakfast is where honesty tastes best. You don’t perform at six a.m. You ask for forgiveness, and you try for flavor. This sandwich doesn’t apologize for being extra. It embraces the sticky, the salty, the runny, the crispy. It makes a mess, then makes it worth cleaning. It tells you to slow down in a voice made of butter and sugar and heat. Eat it standing with a napkin, eat it sitting with both elbows on the table, eat it on the floor if the chair feels too ceremonial. Morning doesn’t judge. Morning just asks if you’re here.
+        </p>
+        <p>
+          If you like artifacts with your ritual, the STICKY & SAVAGE tee is a uniform for the ones who brunch with syrup and refuse to dim the shine. The BRUNCH REBEL tote carries your sandwich, your glitter, your bad ideas that somehow become good ones. The DRIP & DEVOUR stickers turn your fridge into a permission slip—reminders that flavor is allowed to be loud and you are allowed to be hungry in public. These aren’t just products; they’re proof of mornings you decided to make gentler.
+        </p>
+        <p>
+          I’ve watched people take a bite and close their eyes like there’s a song playing nobody else can hear. I’ve watched plates go quiet in rooms that weren’t. I’ve watched laughs show up late and still count. The best part isn’t the maple or the melt—it’s the pause. The second between bite and breath where your day remembers it can still go right. That’s what a sandwich like this is for. Not redemption. Not spectacle. A pause that chooses to be kind.
+        </p>
+        <p>
+          Some mornings want hot sauce, a streak of red that writes your name on the map. Some want black pepper like constellations. Some want nothing but coffee and a second sandwich because the first one told you a truth you needed to hear and you weren’t ready to let it end. However you serve it, serve it warm and willing. Let the yolk run onto your fingers. Let the syrup find your sleeve. Let the bacon remind you what crisp means. Clean up later. This is breakfast—mess first, memory after.
+        </p>
+        <p>
+          Sweet, savory, unhinged. Not a slogan. A promise. You built a morning that forgives. You built a sandwich that remembers. Stack it high. Drip it proud. Take a breath and let the day catch up. If tears show, let them season the moment—salt belongs here. If you laugh, louder is better—crisp belongs here. If you decide to nap afterward, call it strategy—soft belongs here. Eat, and then decide the rest. The sandwich already made the first decision for you: you’re worth a better morning.
+        </p>
+      </section>
 
-      I’ve served it at rooftop brunches, post-rave breakfasts, and chaotic kitchen dance parties. I’ve swapped sausage for mushrooms, added jalapeños, and even turned it into sliders. Every time, it hits. Every time, someone says, “This is better than McDonald’s.”
+      <section class="ingredients" aria-label="Ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>1 cup pancake mix (rested batter = softer buns)</li>
+          <li>1/2 cup milk or water (warm)</li>
+          <li>2 tbsp maple syrup (plus more warm for brushing/drizzle)</li>
+          <li>1 tbsp neutral oil or melted butter (for batter)</li>
+          <li>2 sausage patties (or plant-based)</li>
+          <li>2 slices bacon (or mushroom/tempeh strips)</li>
+          <li>2 large eggs (runny yolk recommended)</li>
+          <li>2 slices cheddar or American (optional)</li>
+          <li>Butter for cooking (skillet and pancakes)</li>
+          <li>Pinch kosher salt & cracked black pepper</li>
+        </ul>
+        <div class="tip">Tip: Brush warm syrup on the pancake buns while they rest—flavor moves better when invited inside, not just poured on top.</div>
+      </section>
 
-      So here it is. Sweet, Savory, Unhinged. A McGriddle remix for brunch rebels. Stack it high. Drip it proud. And don’t forget the napkins—you’ll need them.
-    </p>
-  </section>
+      <section class="instructions" aria-label="Instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Batter: Whisk pancake mix, warm milk/water, maple syrup, and a splash of oil or melted butter until just combined. Rest 5 minutes.</li>
+          <li>Buns: Heat a skillet over medium with a knob of butter. Cook 4 small pancakes (about 3–4 inches) to golden; keep warm. Brush lightly with warm syrup.</li>
+          <li>Sausage & bacon: Cook sausage until edges crisp; cook bacon to your ideal shatter. Keep heat moderate so flavor develops, not burns.</li>
+          <li>Eggs: Fry eggs to desired doneness (runny yolk recommended). Season lightly with salt and pepper.</li>
+          <li>Stack: Pancake bun, sausage, cheese (if using), egg, bacon, pancake bun. Press gently.</li>
+          <li>Finish: Drizzle warm maple syrup. Serve immediately with napkins and an unhurried ten minutes.</li>
+        </ol>
 
-  <section class="ingredients">
-    <h2>Ingredients</h2>
-    <ul>
-      <li>1 cup pancake mix</li>
-      <li>1/2 cup water</li>
-      <li>2 tbsp maple syrup (plus more for drizzling)</li>
-      <li>2 sausage patties</li>
-      <li>2 slices bacon</li>
-      <li>2 eggs</li>
-      <li>2 slices cheddar cheese (optional)</li>
-      <li>Butter for cooking</li>
-    </ul>
-  </section>
+        <div class="gallery" aria-label="Process photos">
+          <img src="/assets/images/recipes/mcgriddle/process-1.jpg" alt="Maple-laced pancake buns cooking in butter until golden." />
+          <img src="/assets/images/recipes/mcgriddle/process-2.jpg" alt="Sausage, bacon, and runny-yolk egg ready to stack." />
+          <img src="/assets/images/recipes/mcgriddle/process-3.jpg" alt="Stacked sandwich with syrup drizzle catching the light." />
+        </div>
+      </section>
 
-  <section class="instructions">
-    <h2>Instructions</h2>
-    <ol>
-      <li>Mix pancake batter with maple syrup. Cook small pancake rounds in butter until golden.</li>
-      <li>Cook sausage patties and bacon until crispy. Fry eggs to desired doneness.</li>
-      <li>Stack: pancake bun, sausage, cheese, egg, bacon, pancake bun.</li>
-      <li>Drizzle with maple syrup. Serve hot and unhinged.</li>
-    </ol>
-  </section>
+      <section class="merch" aria-label="Featured merch from TastefulEaters.com">
+        <h2>Featured merch</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="/assets/images/merch/mcgriddle-tee.jpg" alt="Sticky & Savage Tee" />
+            <h3>STICKY & SAVAGE TEE</h3>
+            <p>For the ones who brunch with syrup and serve with sass.</p>
+            <p class="price">$35</p>
+            <div class="actions">
+              <a class="btn" href="/shop/sticky-and-savage-tee">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/brunch-tote.jpg" alt="Brunch Rebel Tote" />
+            <h3>BRUNCH REBEL TOTE</h3>
+            <p>Carry your sandwich, your glitter, and your chaos.</p>
+            <p class="price">$28</p>
+            <div class="actions">
+              <a class="btn" href="/shop/brunch-rebel-tote">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/syrup-stickers.jpg" alt="Drip & Devour Sticker Pack" />
+            <h3>DRIP & DEVOUR STICKER PACK</h3>
+            <p>Stick it, stack it, flaunt it. Flavor is rebellion.</p>
+            <p class="price">$12</p>
+            <div class="actions">
+              <a class="btn" href="/shop/drip-and-devour-stickers">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
 
-  <section class="merch">
-    <h2>Featured Merch from TastefulEats.store</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/images/mcgriddle-tee.jpg" alt="McGriddle Tee" />
-        <h3>STICKY & SAVAGE TEE</h3>
-        <p>For the ones who brunch with syrup and serve with sass.</p>
-        <p>$35</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/brunch-tote.jpg" alt="Brunch Tote" />
-        <h3>BRUNCH REBEL TOTE</h3>
-        <p>Carry your sandwich, your glitter, and your chaos.</p>
-        <p>$28</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/syrup-stickers.jpg" alt="Sticker Pack" />
-        <h3>DRIP & DEVOUR STICKER PACK</h3>
-        <p>Stick it, stack it, flaunt it. Flavor is rebellion.</p>
-        <p>$12</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 TastefulEats.store — Where flavor meets festival.</p>
+  <footer role="contentinfo">
+    <p>© 2025 TastefulEaters.com — Where flavor meets festival.</p>
+    <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></p>
   </footer>
 </body>
 </html>
