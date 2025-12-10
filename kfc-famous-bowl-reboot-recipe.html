@@ -1,90 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Layered Like a Legend: KFC Bowl That Stacks Comfort & Chaos | TastefulEats.store</title>
-  <meta name="description" content="This KFC Famous Bowl reboot is cozy, chaotic, and stacked like a comfort anthem. A TastefulEats.store remix for flavor freaks and late-night legends." />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layered Like a Legend: KFC Bowl That Stacks Comfort & Chaos | TastefulEaters.com</title>
+  <meta name="description" content="A comfort-and-chaos ritual: this Famous Bowl reboot layers mashed potatoes, crispy chicken, sweet corn, sharp cheese, and peppery gravy with intention. TastefulEaters.com brings the bowl that listens, hugs, and talks back." />
+  <link rel="canonical" href="https://www.tastefuleaters.com/recipes/kfc-famous-bowl-reboot" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Layered Like a Legend: KFC Bowl That Stacks Comfort & Chaos" />
+  <meta property="og:description" content="Comfort stacked with intention—mashed potatoes, crispy chicken, sweet corn, cheddar, and peppery gravy. A TastefulEaters.com ritual." />
+  <meta property="og:url" content="https://www.tastefuleaters.com/recipes/kfc-famous-bowl-reboot" />
+  <meta property="og:image" content="https://www.tastefuleaters.com/assets/images/recipes/kfc-bowl/hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Layered Like a Legend: KFC Bowl That Stacks Comfort & Chaos" />
+  <meta name="twitter:description" content="A messy, honest bowl that holds you together when the day tries to pull you apart." />
+  <meta name="twitter:image" content="https://www.tastefuleaters.com/assets/images/recipes/kfc-bowl/hero.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #ececec;
+      --muted: #b7b7b7;
+      --accent: #c63d2f; /* chili red */
+      --card: #161616;
+      --border: #262626;
+      --link: #ffffff;
+      --gold: #e1a948;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; }
+    a { color: var(--link); text-decoration: none; }
+    header { background: #0b0b0b; padding: 32px 24px; border-bottom: 1px solid var(--border); }
+    header .brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    header h1 { margin: 0; font-size: 2rem; letter-spacing: 0.3px; }
+    header .subtitle { margin: 6px 0 16px; color: var(--muted); }
+    nav a { margin-right: 14px; font-weight: 600; }
+    main { max-width: 980px; margin: 32px auto; padding: 0 24px; }
+    h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.6rem; }
+    .story p { line-height: 1.8; margin: 0 0 16px; }
+    .hero { width: 100%; border-radius: 10px; display: block; margin: 8px 0 24px; border: 1px solid var(--border); }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 24px; }
+    .meta .card { background: var(--card); padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+    .meta .label { color: var(--muted); font-size: 0.85rem; }
+    .meta .value { font-weight: 700; margin-top: 4px; }
+
+    .ingredients, .instructions { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .ingredients ul { list-style: square; padding-left: 20px; }
+    .ingredients li, .instructions li { margin: 8px 0; }
+    .instructions ol { padding-left: 20px; }
+    .tip { background: #121212; border: 1px dashed var(--border); border-radius: 8px; padding: 12px; margin-top: 12px; color: var(--muted); }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+
+    .merch { margin-top: 28px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .product-card img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .product-card h3 { margin: 10px 0 6px; font-size: 1rem; color: #fff; letter-spacing: 0.4px; }
+    .product-card p { margin: 6px 0; color: var(--muted); }
+    .product-card .price { color: var(--text); font-weight: 700; }
+    .product-card .actions { margin-top: 10px; display: flex; gap: 8px; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    footer { background: #0b0b0b; color: var(--muted); border-top: 1px solid var(--border); text-align: center; padding: 24px; margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      .meta { grid-template-columns: 1fr; }
+      .product-grid, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Structured data: Recipe -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Layered Like a Legend: KFC Bowl Reboot",
+    "description": "Comfort stacked with intention—mashed potatoes, crispy chicken, sweet corn, cheddar, and peppery gravy.",
+    "author": { "@type": "Person", "name": "Bryan Stewart" },
+    "publisher": { "@type": "Organization", "name": "TastefulEaters.com" },
+    "datePublished": "2025-12-10",
+    "recipeCategory": "Comfort Food",
+    "recipeCuisine": "American",
+    "keywords": "KFC Famous Bowl, copycat, mashed potatoes, popcorn chicken, gravy, comfort food",
+    "image": [
+      "https://www.tastefuleaters.com/assets/images/recipes/kfc-bowl/hero.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/kfc-bowl/process-1.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/kfc-bowl/process-2.jpg"
+    ],
+    "recipeYield": "2 hearty bowls",
+    "prepTime": "PT20M",
+    "cookTime": "PT25M",
+    "totalTime": "PT45M",
+    "recipeIngredient": [
+      "2 cups mashed potatoes (warm, creamy)",
+      "1 cup frozen corn (steamed)",
+      "1 cup shredded cheddar cheese",
+      "1 cup popcorn chicken (store-bought or homemade)",
+      "1 cup brown gravy (peppery preferred)",
+      "Kosher salt & cracked black pepper to taste",
+      "Optional: sliced jalapeños, green onions, hot sauce"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Warm mashed potatoes and spread into a bowl base." },
+      { "@type": "HowToStep", "text": "Layer with steamed corn, popcorn chicken, and shredded cheddar." },
+      { "@type": "HowToStep", "text": "Drizzle hot, peppery gravy over the top; season to taste." },
+      { "@type": "HowToStep", "text": "Finish with optional jalapeños, green onions, or hot sauce. Serve immediately." }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I keep the mashed potatoes silky?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Warm milk and melted butter, not cold; salt early; mash while hot; loosen with a splash of stock if needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make it vegetarian?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes—swap popcorn chicken for crispy mushrooms or cauliflower, and use a rich mushroom gravy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What cheese works best?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sharp cheddar for bite, Monterey Jack for melt, or smoked gouda for depth. Mix to taste."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Layered Like a Legend</h1>
-    <p class="subtitle">KFC Bowl That Stacks Comfort & Chaos</p>
-    <nav>
-      <a href="/store.html">Shop Merch</a> |
-      <a href="/recipes.html">More Recipes</a> |
-      <a href="/contributors.html">Meet the Makers</a>
+  <header role="banner" aria-label="TastefulEaters.com header">
+    <div class="brand">
+      <h1>TastefulEaters.com</h1>
+      <span class="subtitle">Layered Like a Legend — KFC Bowl That Stacks Comfort & Chaos</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/contributors">Contributors</a>
     </nav>
   </header>
 
-  <section class="story">
-    <h2>The Story Behind the Recipe</h2>
-    <p>
-      The KFC Famous Bowl is comfort stacked in a single vessel. I first had one during finals week, sitting cross-legged on the dorm floor, surrounded by notebooks, caffeine, and existential dread. It was warm, messy, and tasted like survival. Like a hug from someone who doesn’t ask questions.
+  <main id="content">
+    <article>
+      <img class="hero" src="/assets/images/recipes/kfc-bowl/hero.jpg" alt="Comfort bowl layered with mashed potatoes, popcorn chicken, corn, cheddar, and peppery gravy." />
 
-      But the fast-food version started to feel flat. Too salty, not enough soul. So I made my own. Not to copy—but to layer it with intention. To build a bowl that stacks comfort, chaos, and flavor like it’s going on stage.
+      <section class="meta" aria-label="Recipe meta">
+        <div class="card">
+          <div class="label">Author</div>
+          <div class="value">Bryan Stewart</div>
+        </div>
+        <div class="card">
+          <div class="label">Time</div>
+          <div class="value">45 minutes</div>
+        </div>
+        <div class="card">
+          <div class="label">Yield</div>
+          <div class="value">2 bowls</div>
+        </div>
+      </section>
 
-      This version starts with creamy mashed potatoes, topped with crispy popcorn chicken, sweet corn, shredded cheese, and a peppery gravy that knows how to make an entrance. It’s not just a bowl—it’s a mood. A meltdown in five layers.
+      <section class="story" aria-label="Narrative">
+        <h2>The story behind the recipe</h2>
+        <p>
+          The first time I met this bowl, I was cross‑legged on a dorm floor surrounded by notes I didn’t understand and deadlines that didn’t care. It was finals week—flimsy coffee, bad lighting, a heart galloping like alarm bells. Someone said, “You need food that doesn’t ask questions,” and there it was: comfort stacked in a single vessel. Mashed potatoes thick enough to stand their ground, popcorn chicken that pretended to be bravado, corn as bright as optimism, cheese that knew how to melt, gravy with pepper like punctuation. I took a bite and it all slowed down. It tasted like survival. Like a hug from someone who never asked for a backstory.
+        </p>
+        <p>
+          But convenience is the kind of friend that forgets your middle name. Fast‑food comfort starts strong and fades fast. Too salty, not enough soul. It becomes background noise when your chaos is screaming for something that listens. So I rebuilt it—not to imitate, but to layer with intention. To take a bowl that was a quick fix and turn it into a ritual that holds you together when the day tries to pull you apart. Comfort and chaos don’t have to fight; they can stack into something that feels earned.
+        </p>
+        <p>
+          Start with potatoes. Not the kind that apologize for being thin, the kind that claim a bowl like a foundation. Warm milk, melted butter, salt early so the starch knows where the edges are. Mash while hot, not after you’ve answered five emails and forgotten why you’re here. If it thickens beyond kindness, loosen it with a splash of stock—the kind you warmed because cold liquid kills momentum. Spread that base like you’re laying down ground rules. This is the bed the rest will live on.
+        </p>
+        <p>
+          Then corn. Steam it just long enough to turn up the light but not so long that it starts writing eulogies for its own sweetness. Salt lightly. Let the kernels fall like confetti that refuses to be ironic. Comfort needs brightness. Comfort needs small sweetness to remind salt it’s not the only voice in the room.
+        </p>
+        <p>
+          Crispy chicken next. If you’re making it, season the flour with pepper that means it and paprika that understands color. Fry in oil that’s been given time to be ready—350°F, not “hot enough because you’re impatient.” If you’re buying it, re‑crisp in the oven until the breading remembers its purpose. This is the texture that keeps the bowl from turning into mush, the crunch that says “I’m here” without shouting.
+        </p>
+        <p>
+          Cheese is the diplomat. Sharp cheddar for bite, Monterey Jack for melt, smoked gouda for depth if you’re narrating your day in lowercase and need capital letters. Don’t dump; place. Let it meet heat like a reunion. It will soften the edges, it will glue the layers with a quiet confidence, it will make decisions for you when your brain is busy elsewhere.
+        </p>
+        <p>
+          Gravy is the law. Pepper forward. Brown and glossy like late‑night honesty. Build it in a pan that remembers other meals—fond scraped up into the story with stock that stayed warm for this moment. Salt is a compass, not a dare; taste, then taste again. Pour when it’s ready, not when you’re bored. It doesn’t just top—it declares. It tells the bowl what it’s about, and the bowl listens.
+        </p>
+        <p>
+          Layer like you mean it. Potatoes down first, because steadiness wins. Corn scattered—not buried, not ignored. Chicken nestled where the heat can keep it proud. Cheese over the battleground like a flag that doesn’t brag. Gravy to finish, pepper catching light like constellations. The spoon sinks in and you know this will be okay. Not the week. Not the exam. Not your entire mortal coil. But the next ten minutes? Yes. The next ten minutes will be kind.
+        </p>
+        <p>
+          I’ve eaten this bowl after long flights when my body forgot which time zone it believed in. I’ve eaten it after apologies that arrived late but still counted. I’ve eaten it while the rain made the city honest and while the sun tried to prove it could stay. I’ve swapped chicken for mushrooms when I needed comfort without consequence—shiitakes fried until edges went frilled, bathing in the same peppered law. I’ve added jalapeños on nights when the quiet needed a bite back. Every time, it landed. Every time, someone said, “This is better than the original,” and what they meant was: this is better because it’s yours.
+        </p>
+        <p>
+          Failure shows up in bowls too. Potatoes too stiff because you forgot to warm the milk. Chicken soggy because the oven turned into a waiting room instead of a recovery ward. Gravy flat because you salted like you were afraid of flavor. All forgivable. All fixable. The second attempt is smarter because you stayed. The third attempt becomes muscle memory. Comfort is a skill, and chaos can learn manners if you teach it in layers.
+        </p>
+        <p>
+          Here’s how to garnish without lying: green onions sliced thin for lift, hot sauce for confession, jalapeños for the dare you deserve. Don’t bury the bowl under a salad—this isn’t penance. It’s permission. It’s a soft landing that still has crunch. It’s salt and sweet and heat holding hands in public.
+        </p>
+        <p>
+          If you need artifacts for the ritual, the STACKED & STABLE tee is a uniform for the days when you hold flavor together and pretend you’re not fraying at the edges. The COMFORT & CHAOS tote is a carryall for leftovers and your next good idea. The GRAVY & GLORY sticker pack turns your fridge into a manifesto—reminders that sauce is therapy and cheese is diplomacy. These aren’t just products; they’re souvenirs from the meals that saved your Tuesday.
+        </p>
+        <p>
+          Make the bowl for movie marathons where the plot doesn’t matter and the conversation does. Make it for post‑party recoveries when laughter left echoes behind and you need a warm translator. Make it for rainy afternoons when you promise yourself a nap and deliver on it. Take a spoon and admit you tried today. Admit you built something small and honest. Some meals are speeches. This one is a lullaby with a drum solo—soft, then loud, then soft again.
+        </p>
+        <p>
+          Comfort isn’t cowardice. Comfort is courage dressed as gentleness. When the world asks you to be a blade, you can still be a bowl. You can still stack what helps: starch, crunch, sweet, melt, sauce. You can still tell yourself the truth while eating something that forgives you for needing it. Layered Like a Legend isn’t about showing off. It’s about showing up. Spoon it hot. Eat it proud. And if tears show up, let them. They’ll season the memory and the bowl will understand.
+        </p>
+        <p>
+          The day will keep moving. Deadlines will keep marching. But right now, in this moment, you get to taste balance you built with your own hands. Potatoes that refused to be thin. Chicken that stayed crisp. Corn that stayed bright. Cheese that did what it was designed to do. Gravy that reminded everyone who’s in charge. Take another spoonful. Let the heat unclench your jaw. Let the bowl be the friend that doesn’t ask questions and still knows what you meant.
+        </p>
+      </section>
 
-      I’ve served it at movie marathons, post-party recoveries, and rainy day rituals. I’ve swapped chicken for mushrooms, added jalapeños, and even turned it into a brunch bake. Every time, it hits. Every time, someone says, “This is better than KFC.”
+      <section class="ingredients" aria-label="Ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>2 cups mashed potatoes (warm, creamy; loosen with warm milk or stock as needed)</li>
+          <li>1 cup frozen corn (steamed and lightly salted)</li>
+          <li>1 cup shredded cheddar cheese (or blend with Monterey Jack / smoked gouda)</li>
+          <li>1 cup popcorn chicken (store-bought re-crisped or homemade)</li>
+          <li>1 cup brown gravy (pepper-forward, hot)</li>
+          <li>Kosher salt & cracked black pepper to taste</li>
+          <li>Optional: sliced jalapeños, thinly sliced green onions, hot sauce</li>
+        </ul>
+        <div class="tip">Tip: Warm milk and butter before mashing so the potatoes stay silky; keep gravy and chicken hot to avoid a lukewarm stack.</div>
+      </section>
 
-      So here it is. Layered Like a Legend. A Famous Bowl reboot that stacks comfort and chaos. Spoon it hot. Eat it proud. And don’t forget the nap—this bowl earns it.
-    </p>
-  </section>
+      <section class="instructions" aria-label="Instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Base: Warm mashed potatoes until creamy. Season with salt and pepper. Spread into a heated bowl to keep the stack warm.</li>
+          <li>Corn: Steam just to tender. Salt lightly. Scatter over the potatoes—visible, not buried.</li>
+          <li>Chicken: Re-crisp store-bought popcorn chicken in a 400°F oven for 8–10 minutes, or fry homemade until golden and proud. Layer over the corn.</li>
+          <li>Cheese: Shred sharp cheddar (or a blend). Sprinkle over the hot chicken so it melts into the seams and calms the edges.</li>
+          <li>Gravy: Bring peppery brown gravy to a simmer. Taste and adjust salt. Ladle over the bowl, giving every corner a reason to stay.</li>
+          <li>Finish: Add jalapeños, green onions, or hot sauce to taste. Serve immediately with a spoon and a moment of honesty.</li>
+        </ol>
 
-  <section class="ingredients">
-    <h2>Ingredients</h2>
-    <ul>
-      <li>2 cups mashed potatoes</li>
-      <li>1 cup frozen corn (steamed)</li>
-      <li>1 cup shredded cheddar cheese</li>
-      <li>1 cup popcorn chicken (store-bought or homemade)</li>
-      <li>1 cup brown gravy (peppery preferred)</li>
-      <li>Salt & pepper to taste</li>
-      <li>Optional: jalapeños, green onions, hot sauce</li>
-    </ul>
-  </section>
+        <div class="gallery" aria-label="Process photos">
+          <img src="/assets/images/recipes/kfc-bowl/process-1.jpg" alt="Creamy mashed potatoes spread into a warmed bowl." />
+          <img src="/assets/images/recipes/kfc-bowl/process-2.jpg" alt="Crispy popcorn chicken layered over corn and cheddar." />
+          <img src="/assets/images/recipes/kfc-bowl/process-3.jpg" alt="Peppery brown gravy ladled over the stacked bowl." />
+        </div>
+      </section>
 
-  <section class="instructions">
-    <h2>Instructions</h2>
-    <ol>
-      <li>Warm mashed potatoes and spread into a bowl base.</li>
-      <li>Layer with steamed corn, popcorn chicken, and shredded cheese.</li>
-      <li>Drizzle hot gravy over the top. Add optional toppings if desired.</li>
-      <li>Serve immediately with a spoon and a side of emotional release.</li>
-    </ol>
-  </section>
+      <section class="merch" aria-label="Featured merch from TastefulEaters.com">
+        <h2>Featured merch</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="/assets/images/merch/bowl-tee.jpg" alt="Stacked & Stable Tee" />
+            <h3>STACKED & STABLE TEE</h3>
+            <p>For the ones who layer flavor and hold it together (barely).</p>
+            <p class="price">$35</p>
+            <div class="actions">
+              <a class="btn" href="/shop/stacked-and-stable-tee">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/comfort-tote.jpg" alt="Comfort & Chaos Tote" />
+            <h3>COMFORT & CHAOS TOTE</h3>
+            <p>Carry your bowl, your breakdown, and your bounce-back.</p>
+            <p class="price">$28</p>
+            <div class="actions">
+              <a class="btn" href="/shop/comfort-and-chaos-tote">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/gravy-stickers.jpg" alt="Gravy & Glory Sticker Pack" />
+            <h3>GRAVY & GLORY STICKER PACK</h3>
+            <p>Stick it, layer it, flaunt it. Flavor is therapy.</p>
+            <p class="price">$12</p>
+            <div class="actions">
+              <a class="btn" href="/shop/gravy-and-glory-stickers">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
 
-  <section class="merch">
-    <h2>Featured Merch from TastefulEats.store</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/images/bowl-tee.jpg" alt="Bowl Tee" />
-        <h3>STACKED & STABLE TEE</h3>
-        <p>For the ones who layer flavor and hold it together (barely).</p>
-        <p>$35</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/comfort-tote.jpg" alt="Comfort Tote" />
-        <h3>COMFORT & CHAOS TOTE</h3>
-        <p>Carry your bowl, your breakdown, and your bounce-back.</p>
-        <p>$28</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/gravy-stickers.jpg" alt="Sticker Pack" />
-        <h3>GRAVY & GLORY STICKER PACK</h3>
-        <p>Stick it, layer it, flaunt it. Flavor is therapy.</p>
-        <p>$12</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 TastefulEats.store — Where flavor meets festival.</p>
+  <footer role="contentinfo">
+    <p>© 2025 TastefulEaters.com — Where flavor meets festival.</p>
+    <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></p>
   </footer>
 </body>
 </html>
