@@ -1,101 +1,326 @@
+`html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juiciest Thanksgiving Turkey Ever | TastefulEats.store</title>
-  <meta name="description" content="This juicy Thanksgiving turkey copycat recipe outshines Grandma’s—tender, golden, and flavor-packed. A TastefulEats.store ritual for brunch squads and festival feasts." />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juiciest Thanksgiving Turkey Ever | TastefulEaters.com</title>
+  <meta name="description" content="A Bourdain-style manifesto: tender, golden, flavor-packed turkey that carries memory and talks back. A TastefulEaters.com ritual for grief, grit, and feast." />
+  <link rel="canonical" href="https://www.tastefuleaters.com/recipes/juiciest-thanksgiving-turkey" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Juiciest Thanksgiving Turkey Ever" />
+  <meta property="og:description" content="A gritty, emotional turkey ritual—brined in citrus and memory, roasted with reverence." />
+  <meta property="og:url" content="https://www.tastefuleaters.com/recipes/juiciest-thanksgiving-turkey" />
+  <meta property="og:image" content="https://www.tastefuleaters.com/assets/images/recipes/turkey/hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summarylargeimage" />
+  <meta name="twitter:title" content="Juiciest Thanksgiving Turkey Ever" />
+  <meta name="twitter:description" content="A Bourdain-style ritual: grief, memory, flavor. This bird talks back—and tastes better." />
+  <meta name="twitter:image" content="https://www.tastefuleaters.com/assets/images/recipes/turkey/hero.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #ececec;
+      --muted: #b7b7b7;
+      --accent: #c63d2f; / chili red /
+      --card: #161616;
+      --border: #262626;
+      --link: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; }
+    a { color: var(--link); text-decoration: none; }
+    header { background: #0b0b0b; padding: 32px 24px; border-bottom: 1px solid var(--border); }
+    header .brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    header h1 { margin: 0; font-size: 2rem; letter-spacing: 0.3px; }
+    header .subtitle { margin: 6px 0 16px; color: var(--muted); }
+    nav a { margin-right: 14px; font-weight: 600; }
+    main { max-width: 980px; margin: 32px auto; padding: 0 24px; }
+    h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.6rem; }
+    .story p { line-height: 1.8; margin: 0 0 16px; }
+    .hero { width: 100%; border-radius: 10px; display: block; margin: 8px 0 24px; border: 1px solid var(--border); }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 24px; }
+    .meta .card { background: var(--card); padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+    .meta .label { color: var(--muted); font-size: 0.85rem; }
+    .meta .value { font-weight: 700; margin-top: 4px; }
+
+    .ingredients, .instructions { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .ingredients ul { list-style: square; padding-left: 20px; }
+    .ingredients li, .instructions li { margin: 8px 0; }
+    .instructions ol { padding-left: 20px; }
+    .tip { background: #121212; border: 1px dashed var(--border); border-radius: 8px; padding: 12px; margin-top: 12px; color: var(--muted); }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+
+    .merch { margin-top: 28px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .product-card img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .product-card h3 { margin: 10px 0 6px; font-size: 1rem; color: #fff; letter-spacing: 0.4px; }
+    .product-card p { margin: 6px 0; color: var(--muted); }
+    .product-card .price { color: var(--text); font-weight: 700; }
+    .product-card .actions { margin-top: 10px; display: flex; gap: 8px; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    footer { background: #0b0b0b; color: var(--muted); border-top: 1px solid var(--border); text-align: center; padding: 24px; margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      .meta { grid-template-columns: 1fr; }
+      .product-grid, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Structured data: Recipe -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Juiciest Thanksgiving Turkey Ever",
+    "description": "A gritty, emotional turkey ritual—brined in citrus and memory, roasted with reverence.",
+    "author": { "@type": "Person", "name": "Bryan Stewart" },
+    "publisher": { "@type": "Organization", "name": "TastefulEaters.com" },
+    "datePublished": "2025-12-10",
+    "recipeCategory": "Holiday",
+    "recipeCuisine": "American",
+    "keywords": "Thanksgiving turkey, juicy turkey, brined turkey, butter under skin, Bourdain-style cooking",
+    "image": [
+      "https://www.tastefuleaters.com/assets/images/recipes/turkey/hero.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/turkey/process-1.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/turkey/process-2.jpg"
+    ],
+    "recipeYield": "8 servings",
+    "prepTime": "PT12H",
+    "cookTime": "PT4H",
+    "totalTime": "PT16H30M",
+    "recipeIngredient": [
+      "1 whole turkey (12–14 lbs)",
+      "1 gallon water",
+      "1/2 cup kosher salt",
+      "1/2 cup brown sugar",
+      "1 orange, sliced",
+      "1 lemon, sliced",
+      "1 head garlic, halved",
+      "Fresh rosemary, thyme, sage",
+      "1 stick unsalted butter, softened",
+      "1 onion, quartered",
+      "2 carrots, chopped",
+      "2 celery stalks, chopped",
+      "2 cups chicken stock",
+      "Kosher salt & cracked black pepper"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Make brine with water, salt, sugar, citrus, garlic, and herbs. Cool completely." },
+      { "@type": "HowToStep", "text": "Submerge turkey and refrigerate 12–24 hours." },
+      { "@type": "HowToStep", "text": "Pat dry. Rub butter under the skin; season generously." },
+      { "@type": "HowToStep", "text": "Preheat oven to 325°F (165°C). Set turkey on a rack in a roasting pan; add aromatics and stock to the pan." },
+      { "@type": "HowToStep", "text": "Roast 3–4 hours, basting every 30 minutes, until 165°F in the thickest part." },
+      { "@type": "HowToStep", "text": "Rest 30 minutes before carving. Serve." }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I keep the turkey juicy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brine 12–24 hours, rub butter under the skin, baste every 30 minutes, and rest the bird 30 minutes before carving."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I dry brine instead?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Salt the bird generously and refrigerate uncovered for 24–48 hours. Add butter under the skin before roasting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if the skin gets too dark?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tent with foil once the skin reaches a deep golden color, and continue roasting until the internal temp hits 165°F."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Juiciest Thanksgiving Turkey Ever</h1>
-    <p class="subtitle">Better Than Grandma’s (Copycat Recipe)</p>
-    <nav>
-      <a href="/store.html">Shop Merch</a> |
-      <a href="/recipes.html">More Recipes</a> |
-      <a href="/contributors.html">Meet the Makers</a>
+  <header role="banner" aria-label="TastefulEaters.com header">
+    <div class="brand">
+      <h1>TastefulEaters.com</h1>
+      <span class="subtitle">Juiciest Thanksgiving Turkey Ever — Better Than Grandma’s (Copycat Recipe)</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/contributors">Contributors</a>
     </nav>
   </header>
 
-  <section class="story">
-    <h2>The Story Behind the Recipe</h2>
-    <p>
-      The first time I cooked a turkey, I was twenty-three and terrified. My grandmother had passed the year before, and Thanksgiving felt like a ghost town—full of chairs no one sat in and recipes no one dared to touch. I remember standing in the kitchen, staring at the raw bird like it was a test I hadn’t studied for. My hands shook as I rubbed butter under the skin, whispering apologies to her memory with every stroke.
+  <main id="content">
+    <article>
+      <img class="hero" src="/assets/images/recipes/turkey/hero.jpg" alt="Golden-brown Thanksgiving turkey on a roasting tray with citrus and herbs." />
 
-      That year, the table was smaller. My cousins didn’t come. My father stayed in his room. My mother tried to smile but kept disappearing into the pantry. I was left with the task of making the centerpiece—the turkey that had always been hers. I didn’t want to fail her. I didn’t want to fail the memory.
+      <section class="meta" aria-label="Recipe meta">
+        <div class="card">
+          <div class="label">Author</div>
+          <div class="value">Bryan Stewart</div>
+        </div>
+        <div class="card">
+          <div class="label">Time</div>
+          <div class="value">16 hr 30 min (including brine)</div>
+        </div>
+        <div class="card">
+          <div class="label">Yield</div>
+          <div class="value">8 servings</div>
+        </div>
+      </section>
 
-      I read every blog, watched every video, called every aunt. I learned about brining, about butter rubs, about roasting low and slow. But none of it felt right until I started writing my own ritual. I added orange slices to the brine because she loved citrus. I tucked rosemary under the wings because she used to grow it in coffee cans on the windowsill. I basted with melted butter and whispered stories into the oven door.
+      <section class="story" aria-label="Narrative">
+        <h2>The story behind the recipe</h2>
+        <p>
+          It starts in the quiet. Not the kind that softens edges, the kind that creaks through old floorboards and sits heavy on your chest. Thanksgiving used to be loud—kids sprinting through hallways, aunts arguing over recipes they’ll never write down, the oven door slamming like punctuation on a sentence that has too many commas and just enough heart. But that year, it was just me and a bird that felt like a dare. I didn’t want to cook. I didn’t want to remember. I wanted to skip the ritual and eat cereal in silence. But grief has a way of dragging you back to the stove, elbows on the counter, staring at a raw turkey like it’s a final exam, and you’re the last one to realize you should’ve studied.
+        </p>
+        <p>
+          I bought the biggest bird in the store—not because I needed it, but because she would have. My grandmother believed in abundance. She didn’t measure much, didn’t apologize for salt, never cut butter with shame. She cooked like she lived—messy, loud, and unafraid. I brined the turkey in water salted enough to wake the dead, with citrus wheels that looked like tiny suns floating in a galaxy of memory. I cracked pepper like I meant it. I halved garlic and felt the sting in my fingertips. Rosemary, thyme, and sage went in like old friends showing up without knocking.
+        </p>
+        <p>
+          Butter under the skin felt like confession. I slid my hand where hands weren’t meant to go and whispered an apology to the past. The oven door closed with a metallic sigh that felt like the end of the first chapter. The kitchen filled with that smell—the kind that makes you call people you haven’t called in years and forgive things you swore you’d hold onto. I basted every thirty minutes because hope needs maintenance, because stories don’t tell themselves, because nothing gets juicy without attention. The skin went from pale to stained-glass golden, the kind of color that says, “You did something right today.”
+        </p>
+        <p>
+          Failure came anyway. The first year I tried this alone, the breast dried out. The stuffing was a salt bomb. The gravy broke into oil slicks that wouldn’t hold together. I served it anyway. Nobody wanted perfection—perfection is a liar. What people want is food that tries. Food that carries weight. Food that knows your name. I carved and passed plates and watched faces soften into the kind of hush that only happens at the table. Somehow the bird spoke more than any of us did. That’s the thing about honest food: it takes up the space silence leaves behind.
+        </p>
+        <p>
+          The ritual evolved. I started salting the tomatoes for the side salad like they were owed a debt. I toasted stale bread cubes for the stuffing until the edges went mahogany and honest. I began warming stock on the back burner—because cold stock in a hot pan is a shock the gravy never recovers from. I learned to tent the bird when the skin hits the right color. It’s not a sign of fear. It’s respect. You protect what’s beautiful so it can finish becoming itself. If Grandma taught me anything, it’s that tenderness can be taught. You just have to keep showing up.
+        </p>
+        <p>
+          Every time I cook this turkey, I think of the tables we’ve collected like postcards—tiny apartments where you can hear the neighbor’s TV through the wall, houses with too many rooms and not enough people, borrowed spaces where someone else’s plates become part of your story. I’ve fed friends who arrived bristling with secrets and left lighter. I’ve fed strangers whose names I forgot but whose laughter I can still hear in the scraping of forks against plates. I’ve fed myself when the calendar felt like a dare and the daylight refused to stick around. The bird doesn’t fix it. It doesn’t save anyone. But it does something smaller and braver: it makes the next hour honest.
+        </p>
+        <p>
+          Let me be clear: juicy isn’t accident. Juicy is discipline. Brine the bird long enough for salt to whisper into the muscle. Butter under the skin because fat is flavor and courage. Baste like the clock owes you money. Rest the bird for half an hour, because cutting into it too early is a crime with consequences measured in dry slices and regret. Resting is where the juices learn the lesson of staying. Resting is where chaos becomes coherence. Food has rules and they aren’t moral—they’re physical. Learn them like a song and you’ll cook with the kind of swagger that makes silence blink first.
+        </p>
+        <p>
+          Some days, I add a maple glaze at the end—just enough to kiss the skin with a gloss that catches light and conversation. Other days, I keep it austere, letting herb and citrus speak in the tone of a well-tuned instrument. I tuck onion, carrot, and celery into the pan like a small farm visiting the city. The aromatics drink the drippings and tell you stories about the way flavor moves: down, across, into, through. I keep warm stock on the back burner and build the gravy like it’s architecture—deglaze the pan, whisk with patience, salt like a sinner, finish like a saint.
+        </p>
+        <p>
+          If you need gear for this ritual, reach for the shirt that says what the kitchen already knows: GRAVY IS MY GLITTER. Wear it while you whisk, while you forgive the clumps, while you learn the muscle memory of making shine out of drippings. Throw the STUFFED & THRIVING tote over your shoulder—carry leftovers, carry lip balm, carry the small bravery of showing up. Stick CRANBERRY CHAOS on the fridge as a promise that tartness has a place at the table, that sweetness is better with an edge. Merch isn’t just merch when it’s part of the ritual. It becomes artifact. It becomes proof.
+        </p>
+        <p>
+          My grandmother used to hum when she cooked. I never knew the songs. They weren’t songs, really—just notes to herself, a kind of musical shorthand for joy and work wearing the same apron. I hum now too, a little, when the kitchen gets warm and the world outside decides to be difficult. It helps. It reminds me that this is more than a bird. It’s a letter written in steam. It’s a photograph without a camera. It’s the memory that chooses to live in flavor because flavor doesn’t lie. Salt is honest. Smoke is reliable. Acid wakes you up when you’re telling yourself you’re fine.
+        </p>
+        <p>
+          Here’s the part I kept quiet for years: the first time the turkey came out right—truly right—I didn’t take a picture. I didn’t post. I didn’t announce. I carved a slice, sat down, and let it be mine. I tasted the kind of tenderness that breaks you open and stitches you back together in the same breath. I thought about her hands, the way they moved like they were listening. The way she never needed a timer because she had time in her bones. The oven light threw a soft gold across the countertop and I realized I wasn’t hungry anymore. Not for food. For something else. For proof that I could carry the ritual forward without burning it down.
+        </p>
+        <p>
+          If you’re reading this, you’ve already decided you’re going to try. Good. Here’s my offer: when you fail—and you will—it won’t be the kind of failure that wins. It’ll be the kind that teaches. Dry slices mean you cut too early. Pale skin means you rushed the color. Broken gravy means you forgot patience. All fixable. All human. The second attempt will be better, not because you got smarter but because you stayed. Cooking rewards the stubborn. Food loves a fighter who knows when to rest.
+        </p>
+        <p>
+          Serve it loud. Bring napkins like you mean it. Don’t apologize for the noise of carving or the mess that rides along. Set the platter in the center of the table and watch the room tilt toward it. Watch the quiet bend. Watch the faces shift from masks to maps. This bird isn’t perfect. Perfect birds don’t exist. What exists is the kind of meal that collects the pieces of a year and offers them back with a little more mercy than you expected. Cut through the breast like you are writing your own ending. Pull a leg with the confidence of someone who paid attention. Ladle gravy with showmanship and grace. Then eat—to remember, to forgive, to become softer without losing your edge.
+        </p>
+        <p>
+          Juicy, golden, unapologetically emotional. Is it better than Grandma’s? Maybe. But better isn’t the right word. It’s yours. And that matters more than comparison ever will. The ritual isn’t in the perfection; it’s in the making. It’s in the way the kitchen learns your name again, the way the oven stops being a machine and becomes a partner, the way the table turns into a stage where honesty performs without costume. This is the Juiciest Thanksgiving Turkey Ever not because we brag, but because we care. And care is louder than silence. Care is flavor pushed through grief into something like joy.
+        </p>
+      </section>
 
-      When it came out, golden and steaming, I cried. Not because it was perfect—but because it was mine. Because it carried her. Because it fed the silence.
+      <section class="ingredients" aria-label="Ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>1 whole turkey (12–14 lbs)</li>
+          <li>1 gallon water</li>
+          <li>1/2 cup kosher salt</li>
+          <li>1/2 cup brown sugar</li>
+          <li>1 orange, sliced</li>
+          <li>1 lemon, sliced</li>
+          <li>1 head garlic, halved</li>
+          <li>Fresh rosemary, thyme, sage</li>
+          <li>1 stick unsalted butter, softened</li>
+          <li>1 onion, quartered</li>
+          <li>2 carrots, chopped</li>
+          <li>2 celery stalks, chopped</li>
+          <li>2 cups chicken stock (warm)</li>
+          <li>Kosher salt & cracked black pepper</li>
+        </ul>
+        <div class="tip">Tip: Cool your brine completely before submerging the turkey, and keep stock warm for gravy that listens.</div>
+      </section>
 
-      That turkey became my tradition. Every year, I make it again. Sometimes for friends, sometimes for strangers, sometimes just for myself. I’ve served it in tiny apartments and big houses, in joy and in grief. And every time, I feel her hands guiding mine. I feel the silence soften. I feel the table fill.
+      <section class="instructions" aria-label="Instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Make the brine: In a large pot, combine water, kosher salt, brown sugar, citrus, garlic, and herbs. Bring to a gentle simmer to dissolve, then cool completely.</li>
+          <li>Brine: Submerge the turkey in the cooled brine and refrigerate 12–24 hours. Rotate halfway through if needed.</li>
+          <li>Prep: Remove the turkey, pat thoroughly dry. Slide softened butter under the skin over the breast and thighs. Season generously with salt and cracked pepper.</li>
+          <li>Set the pan: Preheat oven to 325°F (165°C). Set the turkey on a rack in a roasting pan. Add onion, carrot, celery, and 2 cups warm stock to the pan.</li>
+          <li>Roast: Cook for 3–4 hours, basting every 30 minutes with pan drippings. Tent loosely with foil if the skin reaches deep golden early.</li>
+          <li>Check temp: Pull when the thickest part of the breast hits 165°F. If the thighs lag, return to oven in short intervals.</li>
+          <li>Rest: Let the bird rest 30 minutes before carving. Do not rush—resting is where the juice learns to stay.</li>
+          <li>Gravy (optional): Set the pan over medium heat. Deglaze with a splash of stock, whisking up fond. Reduce gently. Season and finish with a knob of butter.</li>
+        </ol>
 
-      This isn’t just a copycat recipe. It’s a resurrection. It’s proof that flavor can carry memory. That tenderness can be taught. That Grandma’s legacy isn’t in the exact measurements—it’s in the courage to try.
+        <div class="gallery" aria-label="Process photos">
+          <img src="/assets/images/recipes/turkey/process-1.jpg" alt="Citrus and herb brine with garlic and peppercorns." />
+          <img src="/assets/images/recipes/turkey/process-2.jpg" alt="Butter under the skin over the breast and thighs." />
+          <img src="/assets/images/recipes/turkey/process-3.jpg" alt="Golden roasted turkey resting before carving." />
+        </div>
+      </section>
 
-      I’ve since added new touches. A butter rub with sage and thyme. A final glaze of maple syrup. A stuffing that tastes like forgiveness. But the heart of it remains: a bird brined in love, roasted in remembrance, carved with reverence.
+      <section class="merch" aria-label="Featured merch from TastefulEaters.com">
+        <h2>Featured merch</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="/assets/images/merch/gravy-tee.jpg" alt="Gravy Is My Glitter Tee" />
+            <h3>GRAVY IS MY GLITTER TEE</h3>
+            <p>For the ones who whisk with swagger and shine without apology.</p>
+            <p class="price">$35</p>
+            <div class="actions">
+              <a class="btn" href="/shop/gravy-is-my-glitter-tee">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/turkey-tote.jpg" alt="Stuffed & Thriving Tote" />
+            <h3>STUFFED & THRIVING TOTE</h3>
+            <p>Carry leftovers, lip balm, and your post-feast glow.</p>
+            <p class="price">$28</p>
+            <div class="actions">
+              <a class="btn" href="/shop/stuffed-and-thriving-tote">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/cranberry-stickers.jpg" alt="Cranberry Chaos Sticker Pack" />
+            <h3>CRANBERRY CHAOS STICKER PACK</h3>
+            <p>Sweet, tart, and ready to slap on your fridge or guitar case.</p>
+            <p class="price">$12</p>
+            <div class="actions">
+              <a class="btn" href="/shop/cranberry-chaos-stickers">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
 
-      I’ve taught others how to make it. I’ve written it down for nieces and nephews. I’ve shared it with people who never met her but now feel like they have. Because food is a kind of storytelling. And this turkey is a chapter I’ll never stop writing.
-
-      So here it is. Juicy, golden, unapologetically emotional. Better than Grandma’s? Maybe. But only because she taught me how to make it mine.
-    </p>
-  </section>
-
-  <section class="ingredients">
-    <h2>Ingredients</h2>
-    <ul>
-      <li>1 whole turkey (12–14 lbs)</li>
-      <li>1 gallon water</li>
-      <li>1/2 cup kosher salt</li>
-      <li>1/2 cup brown sugar</li>
-      <li>1 orange, sliced</li>
-      <li>1 lemon, sliced</li>
-      <li>Fresh rosemary, thyme, sage</li>
-      <li>1 stick unsalted butter</li>
-      <li>Salt & pepper to taste</li>
-    </ul>
-  </section>
-
-  <section class="instructions">
-    <h2>Instructions</h2>
-    <ol>
-      <li>Brine the turkey overnight in water, salt, sugar, citrus, and herbs.</li>
-      <li>Preheat oven to 325°F. Pat turkey dry and rub butter under the skin.</li>
-      <li>Season with salt, pepper, and fresh herbs. Tie legs with twine.</li>
-      <li>Roast for 3–4 hours, basting every 30 minutes.</li>
-      <li>Let rest 30 minutes before carving. Serve with memory (and maybe a cranberry spritz).</li>
-    </ol>
-  </section>
-
-  <section class="merch">
-    <h2>Featured Merch from TastefulEats.store</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/images/gravy-tee.jpg" alt="Gravy Tee" />
-        <h3>GRAVY IS MY GLITTER TEE</h3>
-        <p>For the ones who stir with sparkle and serve with sass.</p>
-        <p>$35</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/turkey-tote.jpg" alt="Turkey Tote" />
-        <h3>STUFFED & THRIVING TOTE</h3>
-        <p>Carry leftovers, lip gloss, and your post-feast glow.</p>
-        <p>$28</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/cranberry-stickers.jpg" alt="Sticker Pack" />
-        <h3>CRANBERRY CHAOS STICKER PACK</h3>
-        <p>Sweet, tart, and ready to slap on your laptop or lunchbox.</p>
-        <p>$12</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 TastefulEats.store — Where flavor meets festival.</p>
+  <footer role="contentinfo">
+    <p>© 2025 TastefulEaters.com — Where flavor meets festival.</p>
+    <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></p>
   </footer>
 </body>
 </html>
+`
