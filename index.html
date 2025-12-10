@@ -2,138 +2,232 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TastefulEats.store – Where Flavor Headlines Merch Drops</title>
-  <meta name="description" content="TastefulEats.store blends emotional recipes, bold food culture, and merch drops that echo what we crave, rebel against, and celebrate." />
-  <link rel="stylesheet" href="/styles/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TastefulEaters – Where Flavor Headlines Merch Drops</title>
+  <meta name="description" content="TastefulEaters is where foodie culture meets merch drops. Crave, glow, rebel, and chill through flavor." />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background-color: #fffaf4;
-      color: #333;
-      line-height: 1.6;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fffaf4;
+      color: #3a2e2e;
+      line-height: 1.6;
     }
     header {
-      background-color: #ffecd2;
-      padding: 3em 2em;
+      background: linear-gradient(to right, #ff9a3c, #ff6f3c);
+      padding: 2rem 1rem;
       text-align: center;
+      color: white;
     }
     header h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 2.5rem;
+      margin: 0;
     }
     header p {
-      font-size: 1.2em;
-      color: #6b4c3b;
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0;
     }
     .quadrants {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2em;
-      padding: 3em 2em;
-      background-color: #fdfaf7;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
     }
     .quadrant {
-      background-color: #f4f1ee;
-      border-radius: 8px;
-      padding: 1.5em;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
+      padding: 1rem;
     }
     .quadrant img {
       width: 100%;
-      border-radius: 6px;
-      object-fit: cover;
+      border-radius: 8px;
     }
-    .quadrant h2 {
-      font-size: 1.4em;
-      margin-top: 1em;
+    .quadrant h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
     }
-    .quadrant p {
-      font-size: 0.95em;
+    .featured-recipe {
+      background:#fff3e0;
+      padding:2rem;
+      text-align:center;
+      border-radius:12px;
+      margin:2rem auto;
+      max-width:800px;
+    }
+    .featured-recipe img {
+      width:100%;
+      border-radius:12px;
+      margin-bottom:1rem;
+    }
+    .featured-recipe h2 {
+      font-family:'Luckiest Guy', cursive;
+      font-size:2rem;
+      margin-bottom:0.5rem;
+    }
+    .featured-recipe p {
+      font-style:italic;
+      font-size:1.1rem;
+      margin-bottom:1rem;
+    }
+    .featured-recipe a {
+      display:inline-block;
+      background:#ff6f3c;
+      color:white;
+      padding:0.75rem 1.5rem;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    .video-box {
+      background: #ffe8d6;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+    .credibility {
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1rem;
       color: #555;
     }
-    .modules {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2em;
-      padding: 3em 2em;
-      background-color: #fff;
+    .credibility-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
     }
-    .module {
-      background-color: #f3efea;
+    .credibility-icons div {
+      background: #ffefc3;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
-      padding: 1.5em;
+      font-weight: bold;
+    }
+    .recipes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+    .recipe-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
       text-align: center;
     }
-    .module img {
+    .recipe-card img {
       width: 100%;
-      border-radius: 6px;
-      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
     }
-    .module h3 {
-      font-size: 1.3em;
-      margin-top: 1em;
+    .merch-carousel {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
     }
-    .module p {
-      font-size: 0.95em;
-      color: #555;
+    .merch-item {
+      background: #fff3e0;
+      padding: 1rem;
+      border-radius: 12px;
+      width: 30%;
+    }
+    .merch-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
     }
     footer {
       text-align: center;
-      padding: 2em;
-      font-size: 0.9em;
-      color: #999;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <h1>TASTEFULEATS</h1>
+    <h1>TastefulEATERS</h1>
     <p>Where Flavor Headlines Merch Drops</p>
   </header>
 
   <section class="quadrants">
     <div class="quadrant">
-      <img src="/assets/images/pizza.jpg" alt="Crave – Pizza" />
-      <h2>CRAVE</h2>
-      <p>Discover the pizza that makes my heart skip a beat...</p>
+      <img src="https://via.placeholder.com/400x250?text=Pizza" alt="Pizza">
+      <h3>CRAVE</h3>
+      <p>The slice that makes my heart skip a beat.</p>
     </div>
     <div class="quadrant">
-      <img src="/assets/images/salad.jpg" alt="Glow – Salad" />
-      <h2>GLOW</h2>
-      <p>A salad that brings pure joy with every bite</p>
+      <img src="https://via.placeholder.com/400x250?text=Salad" alt="Salad">
+      <h3>GLOW</h3>
+      <p>Joy in every bite of this citrus-bright bowl.</p>
     </div>
     <div class="quadrant">
-      <img src="/assets/images/fried-chicken.jpg" alt="Rebel – Fried Chicken" />
-      <h2>REBEL</h2>
-      <p>Sometimes you just need to embrace the crispy...</p>
+      <img src="https://via.placeholder.com/400x250?text=Fried+Chicken" alt="Fried Chicken">
+      <h3>REBEL</h3>
+      <p>Sometimes you just need to embrace the crispy.</p>
     </div>
     <div class="quadrant">
-      <img src="/assets/images/milkshake.jpg" alt="Chill – Milkshake" />
-      <h2>CHILL</h2>
-      <p>This milkshake is my go-to for pure bliss</p>
+      <img src="https://via.placeholder.com/400x250?text=Milkshake" alt="Milkshake">
+      <h3>CHILL</h3>
+      <p>Two straws, one memory. Pure bliss.</p>
     </div>
   </section>
 
-  <section class="modules">
-    <div class="module">
-      <img src="/assets/images/joy-shirt.jpg" alt="Drop Zone – Joy Shirt" />
-      <h3>DROP ZONE</h3>
-      <p>This shirt isn’t just merch—it’s a mood. A wearable echo of joy.</p>
-    </div>
-    <div class="module">
-      <img src="/assets/images/good-vibes-cap.jpg" alt="Daily Food News – Good Vibes Cap" />
-      <h3>DAILY FOOD NEWS</h3>
-      <p>What we eat says a lot about us. Here’s what’s new in food culture.</p>
+  <section class="featured-recipe">
+    <img src="https://via.placeholder.com/800x400?text=Brunch+Pancake+Ritual" alt="Stack of pancakes with berries and syrup">
+    <h2>The Brunch Pancake Ritual</h2>
+    <p>Every Sunday, we gather. Pancakes, laughter, and mimosa spills.</p>
+    <a href="brunch-pancake-ritual.html">Read the Full Ritual & Recipe</a>
+  </section>
+
+  <section class="video-box">
+    Some flavors feed the body. Others feed the soul.
+  </section>
+
+  <section class="credibility">
+    <p><em>“TastefulEaters helped me rediscover joy in cooking.”</em> — Morgan S.</p>
+    <p>Over 500K Flavor Seekers Served</p>
+    <div class="credibility-icons">
+      <div>CRAVE-TESTED</div>
+      <div>CULTURE-DRIVEN</div>
+      <div>IDENTITY-CERTIFIED</div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 TastefulEats.store. Built for flavor, feeling, and ritual.</p>
-  </footer>
+  <section class="recipes">
+    <div class="recipe-card">
+      <img src="https://via.placeholder.com/400x250?text=Pancakes" alt="Pancakes">
+      <h3>The Brunch Pancake Ritual</h3>
+      <p>Every Sunday, we gather. Pancakes, laughter, and mimosa spills.</p>
+    </div>
+    <div class="recipe-card">
+      <img src="https://via.placeholder.com/400x250?text=Dressing" alt="Citrus Dressing">
+      <h3>5-Minute Citrus Dressing</h3>
+      <p>Bright, balanced, and ready for any bowl.</p>
+    </div>
+  </section>
 
-</body>
-</html>
+  <section class="merch-carousel">
+    <div class="merch-item">
+      <img src="https://via.placeholder.com/250x250?text=Brunch+Club+Tee" alt="Brunch Club Tee">
+      <h4>Brunch Club Tee</h4>
+      <p>“Every Sunday, we gather.”</p>
+    </div>
+    <div class="merch-item">
+      <img src="https://via.placeholder.com/250x250?text=Glow+Bowl+Tote" alt="Glow Bowl Tote">
+      <h4>Glow Bowl Tote</h4>
+      <p>Carry your joy.</p>
+    </div>
+    <div class="merch-item">
+      <img src="https://via.placeholder.com/250x250
