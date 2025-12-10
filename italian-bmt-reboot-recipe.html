@@ -1,94 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stacked, Salty, Unfiltered: Italian BMT That Talks Back & Tastes Better | TastefulEats.store</title>
-  <meta name="description" content="This Italian BMT reboot is salty, stacked, and engineered to talk back. A TastefulEats.store remix for sandwich freaks and flavor rebels." />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stacked, Salty, Unfiltered: Italian BMT That Talks Back & Tastes Better | TastefulEaters.com</title>
+  <meta name="description" content="An unapologetic Italian BMT reboot—salty, stacked, and engineered to talk back. A TastefulEaters.com manifesto for sandwich freaks and flavor rebels." />
+  <link rel="canonical" href="https://www.tastefuleaters.com/recipes/italian-bmt-reboot" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Stacked, Salty, Unfiltered: Italian BMT That Talks Back & Tastes Better" />
+  <meta property="og:description" content="An unapologetic Italian BMT reboot—salty, stacked, and engineered to talk back. A TastefulEaters.com manifesto." />
+  <meta property="og:url" content="https://www.tastefuleaters.com/recipes/italian-bmt-reboot" />
+  <meta property="og:image" content="https://www.tastefuleaters.com/assets/images/recipes/italian-bmt/hero.jpg" />
+
+  <!-- Twitter cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Italian BMT That Talks Back & Tastes Better" />
+  <meta name="twitter:description" content="A salty, stacked manifesto sandwich from TastefulEaters.com." />
+  <meta name="twitter:image" content="https://www.tastefuleaters.com/assets/images/recipes/italian-bmt/hero.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #ececec;
+      --muted: #b7b7b7;
+      --accent: #c63d2f; /* chili red */
+      --card: #161616;
+      --border: #262626;
+      --link: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; }
+    a { color: var(--link); text-decoration: none; }
+    header { background: #0b0b0b; padding: 32px 24px; border-bottom: 1px solid var(--border); }
+    header .brand { display: flex; align-items: baseline; gap: 12px; }
+    header h1 { margin: 0; font-size: 2rem; letter-spacing: 0.3px; }
+    header .subtitle { margin: 6px 0 16px; color: var(--muted); }
+    nav a { margin-right: 14px; font-weight: 600; }
+    main { max-width: 980px; margin: 32px auto; padding: 0 24px; }
+    h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.6rem; }
+    .story p { line-height: 1.8; margin: 0 0 16px; }
+    .hero { width: 100%; border-radius: 10px; display: block; margin: 8px 0 24px; border: 1px solid var(--border); }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 24px; }
+    .meta .card { background: var(--card); padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+    .meta .label { color: var(--muted); font-size: 0.85rem; }
+    .meta .value { font-weight: 700; margin-top: 4px; }
+
+    .ingredients, .instructions { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .ingredients ul { list-style: square; padding-left: 20px; }
+    .ingredients li, .instructions li { margin: 8px 0; }
+    .instructions ol { padding-left: 20px; }
+    .tip { background: #121212; border: 1px dashed var(--border); border-radius: 8px; padding: 12px; margin-top: 12px; color: var(--muted); }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+
+    .merch { margin-top: 28px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .product-card img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .product-card h3 { margin: 10px 0 6px; font-size: 1rem; color: #fff; }
+    .product-card p { margin: 6px 0; color: var(--muted); }
+    .product-card .price { color: var(--text); font-weight: 700; }
+    .product-card .actions { margin-top: 10px; display: flex; gap: 8px; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+
+    footer { background: #0b0b0b; color: var(--muted); border-top: 1px solid var(--border); text-align: center; padding: 24px; margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      .meta { grid-template-columns: 1fr; }
+      .product-grid, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Structured data: Recipe -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Italian BMT Reboot (Stacked, Salty, Unfiltered)",
+    "description": "An unapologetic Italian BMT rebuild—salty, stacked, and engineered to talk back. A TastefulEaters.com manifesto sandwich.",
+    "author": { "@type": "Person", "name": "Bryan Stewart" },
+    "publisher": { "@type": "Organization", "name": "TastefulEaters.com" },
+    "datePublished": "2025-12-10",
+    "recipeCategory": "Sandwich",
+    "recipeCuisine": "Italian-American",
+    "keywords": "Italian BMT, Subway copycat, deli sandwich, pepperoni, salami, provolone",
+    "image": [
+      "https://www.tastefuleaters.com/assets/images/recipes/italian-bmt/hero.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/italian-bmt/process-1.jpg",
+      "https://www.tastefuleaters.com/assets/images/recipes/italian-bmt/process-2.jpg"
+    ],
+    "recipeYield": "1 hearty sandwich",
+    "prepTime": "PT15M",
+    "totalTime": "PT20M",
+    "recipeIngredient": [
+      "1 crusty ciabatta roll or Italian hoagie",
+      "3 slices spicy salami",
+      "3 slices smoked ham",
+      "3 slices pepperoni",
+      "2 slices aged provolone",
+      "1/2 cup shredded iceberg lettuce",
+      "1/4 cup sliced tomatoes (lightly salted)",
+      "1/4 cup thinly sliced red onions",
+      "1/4 cup banana peppers",
+      "2 tbsp red wine vinegar",
+      "1 tbsp extra virgin olive oil",
+      "1/2 tsp dried oregano",
+      "Pinch kosher salt and cracked black pepper",
+      "Optional: mayo, mustard, jalapeños"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Slice bread lengthwise, leaving a hinge; toast lightly until the crust whispers when pressed." },
+      { "@type": "HowToStep", "text": "Layer meats—salami, ham, pepperoni—stack with intention." },
+      { "@type": "HowToStep", "text": "Lay provolone over the meats to calm the salt and bind the stack." },
+      { "@type": "HowToStep", "text": "Add lettuce, tomatoes (pre-salted), red onions (paper-thin), banana peppers." },
+      { "@type": "HowToStep", "text": "Drizzle red wine vinegar and olive oil; sprinkle oregano, salt, pepper." },
+      { "@type": "HowToStep", "text": "Close and press gently; rest 5 minutes so the sandwich coheres." },
+      { "@type": "HowToStep", "text": "Slice diagonally; serve loud with napkins." },
+      { "@type": "HowToStep", "text": "Optional: Panini press 2–3 minutes until cheese sighs and crust sings." }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ for helpful content -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I prevent a soggy Italian BMT?",
+        "@type": "Question",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lightly toast the bread, pre-salt tomatoes, use paper-thin onions, and let the sandwich rest 5 minutes so the vinaigrette absorbs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What meats can I swap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Try capicola for heat, mortadella for silk, or soppressata for bite. Keep the salt-smoke-acid balance intact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make it a panini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Press 2–3 minutes until the provolone relaxes and the crust crackles. Rebalance vinaigrette after pressing if needed."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Stacked, Salty, Unfiltered</h1>
-    <p class="subtitle">Italian BMT That Talks Back & Tastes Better</p>
-    <nav>
-      <a href="/store.html">Shop Merch</a> |
-      <a href="/recipes.html">More Recipes</a> |
-      <a href="/contributors.html">Meet the Makers</a>
+  <header role="banner" aria-label="TastefulEaters.com header">
+    <div class="brand">
+      <h1>TastefulEaters.com</h1>
+      <span class="subtitle">Stacked, Salty, Unfiltered — Italian BMT That Talks Back & Tastes Better</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/contributors">Contributors</a>
     </nav>
   </header>
 
-  <section class="story">
-    <h2>The Story Behind the Recipe</h2>
-    <p>
-      The Italian BMT was my first taste of sandwich rebellion. I remember ordering one after skipping class, extra pickles, extra sass, no regrets. It was salty, stacked, and somehow felt like a middle finger wrapped in deli paper.
+  <main id="content">
+    <article>
+      <img class="hero" src="/assets/images/recipes/italian-bmt/hero.jpg" alt="Italian BMT reboot on ciabatta, stacked with salami, ham, pepperoni, and banana peppers." />
 
-      But the chain version started to feel tame. So I made my own. Not to copy—but to clap back. To build a sandwich that talks louder, tastes better, and doesn’t apologize for being extra.
+      <section class="meta" aria-label="Recipe meta">
+        <div class="card">
+          <div class="label">Author</div>
+          <div class="value">Bryan Stewart</div>
+        </div>
+        <div class="card">
+          <div class="label">Time</div>
+          <div class="value">20 minutes</div>
+        </div>
+        <div class="card">
+          <div class="label">Yield</div>
+          <div class="value">1 sandwich</div>
+        </div>
+      </section>
 
-      This version starts with a crusty ciabatta roll, layered with spicy salami, smoky ham, and pepperoni that bites back. Then comes provolone, shredded lettuce, tomatoes, red onions, banana peppers, and a drizzle of zesty vinaigrette. It’s not just a sub—it’s a manifesto.
+      <section class="story" aria-label="Narrative">
+        <h2>The story behind the recipe</h2>
+        <p>
+          The first time I ordered an Italian BMT, I wasn’t hungry—I was restless. I’d skipped class with the kind of performance only a millennial could justify, headphones in, hood up, walking fast like the world was a hallway and I knew the exit. I pushed open the door and stood in a line of people too tired to care what they were eating. Extra pickles, extra sass, no regrets. That sandwich was salty and stacked, deli paper whispering against my wrist like a dare. The first bite tasted like a small rebellion I could actually finish.
+        </p>
+        <p>
+          Years later, the chain version started to feel like a photocopy of a photocopy—edges blurred, flavors muted, the kind of sandwich that apologizes before you complain. I wanted volume. Bite. Something that talked back. So I made my own. Not to copy—but to clap back. To build a sandwich that throws elbows in your mouth, that asks where you’ve been, what you’re afraid of, and why blandness has been allowed to win for this long.
+        </p>
+        <p>
+          The first attempt? A mess. The ciabatta collapsed like a tired bridge, the vinaigrette flooded the lettuce into a swamp, pepperoni slicked the cutting board like runaway coins on an overturned jukebox. I wiped the counter, tasted the failure, and did the only honest thing: I made another. Imperfection is the point. Food that never fails is food that never tries. I wanted a sandwich with bruises, a sandwich that learned to fight on the second round.
+        </p>
+        <p>
+          I roasted the peppers a touch longer until their edges went glossy and sweet; I shaved the onion thinner—ghost-slices, barely there, more shadow than ring. I toasted the roll just enough to hear it crack under my thumb. The meats mattered. Salami with a peppered halo. Pepperoni that actually bites back, not a shy nudge. Smoked ham that smells like Monday morning and a second chance. Provolone that knows how to stay quiet and still say everything.
+        </p>
+        <p>
+          Assembly became ritual. Meat first—stacked like memory. Cheese next—two sheets of calm in a storm. Lettuce, tomatoes, red onions, banana peppers—color theory applied to hunger. Then the vinaigrette: red wine vinegar flirting with extra-virgin olive oil, oregano like confetti for the jaded, salt and pepper tossed with a wrist that’s done this dance a thousand times. I pressed the sandwich gently, felt the warmth settle, and decided to wait five minutes. That pause—those quiet, stubborn five minutes—turned the chaos into coherence. The bread absorbed purpose. The meats shook hands. The vinaigrette stopped shouting and started singing.
+        </p>
+        <p>
+          I ate half standing at the counter, head tilted like a kid, napkin tucked into the collar like an unmade promise. Bite. Crunch. Salt. Heat. Acid. The kind of flavor that reminds you to text the friend you haven’t called and to tell the truth when you don’t want to. This wasn’t just a sub—it was a manifesto with a crust. I took it to rooftop hangs where laughter is currency and a good sandwich makes introductions. I passed it around after rant-fueled kitchen dance parties. I packed it for a train ride where all you can do is stare out the window and pretend the landscape is telling you something new. Every time, it hit. Every time, someone said the sentence I’d been chasing: “This is better than Subway.”
+        </p>
+        <p>
+          Failure kept showing up like it wanted a seat at the table. Bread too soft. Lettuce too wet. The vinegar slipped, the oil tried to lead, the oregano went from whisper to sermon. I would start over, wipe the board, salt the tomatoes, talk to the banana peppers like they were co-conspirators. Cooking is repetition with memory. You don’t get good because you want to—you get good because you fail and you take notes written in sweat and crumbs.
+        </p>
+        <p>
+          The artifacts came later. The “Salty & Unfiltered” tee wasn’t designed—it was heard. A line from the kitchen, a phrase someone tossed over their shoulder while chewing, the accidental poem of a sandwich that asks for nothing but honesty. It’s the shirt you wear when you layer flavor and don’t apologize for wanting more. The “Stacked & Snacky” tote carries your sub, your sass, your side-eye—proof that food is portable rebellion. And the “Flavor Fight” stickers? Slap your manifesto where it belongs: fridge, cooler, guitar case you keep for reasons you won’t explain. These aren’t products. They’re souvenirs from a food life lived out loud.
+        </p>
+        <p>
+          Here’s the part I didn’t want to admit: I needed this sandwich to listen. I needed it to tell me that being extra wasn’t the sin—being quiet was. That salt is a story, smoke is a memory, acid is the wake-up call you taste. When I nailed the balance—when the first bite threw a punch and the second pulled me into a hug—I sat down, forearms on the table, eyes closed, and felt more human than I did before. Not because I’d made the perfect BMT, but because I’d made my BMT—the only one I could trust.
+        </p>
+        <p>
+          Serve it loud. Slice it bold. Use napkins like you mean it. Let the vinaigrette stain your fingertips. Let the oregano crawl under your nails and remind you later, when you’re reading news that hurts, that you once built something true and edible and yours. If anyone asks where you got the idea, tell them you were hungry and tired of apologizing. Tell them you built a sandwich that talks back and tastes better. Tell them rebellion is better with banana peppers.
+        </p>
+        <p>
+          Stacked. Salty. Unfiltered. Built with a crusty ciabatta, layered with meats that bite back, finished with a vinaigrette that refuses to whisper. Not just a sub—a manifesto. If you’re reading this, you’re already in the club. Now make the sandwich—and let it make you.
+        </p>
+      </section>
 
-      I’ve served it at rooftop hangs, post-rant snack attacks, and chaotic kitchen dance parties. I’ve swapped meats, added jalapeños, and even turned it into a panini. Every time, it hits. Every time, someone says, “This is better than Subway.”
+      <section class="ingredients" aria-label="Ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>1 crusty ciabatta roll or Italian hoagie</li>
+          <li>3 slices spicy salami</li>
+          <li>3 slices smoked ham</li>
+          <li>3 slices pepperoni (robust, not shy)</li>
+          <li>2 slices aged provolone</li>
+          <li>1/2 cup shredded iceberg lettuce</li>
+          <li>1/4 cup sliced tomatoes (lightly salted)</li>
+          <li>1/4 cup paper-thin red onions</li>
+          <li>1/4 cup banana peppers</li>
+          <li>2 tbsp red wine vinegar</li>
+          <li>1 tbsp extra virgin olive oil</li>
+          <li>1/2 tsp dried oregano</li>
+          <li>Pinch kosher salt and cracked black pepper</li>
+          <li>Optional: mayo, mustard, jalapeños</li>
+        </ul>
+        <div class="tip">Tip: Pre-salt tomatoes and toast the bread lightly—this is how you keep the sandwich from going soggy.</div>
+      </section>
 
-      So here it is. Stacked, Salty, Unfiltered. An Italian BMT reboot that talks back and tastes better. Slice it bold. Serve it loud. And don’t forget the napkins—this sandwich has opinions.
-    </p>
-  </section>
+      <section class="instructions" aria-label="Instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Slice the bread lengthwise, leaving a hinge. Toast lightly until the crust whispers when pressed.</li>
+          <li>Layer meats—salami, ham, pepperoni. Stack with intention; this is architecture, not chaos.</li>
+          <li>Lay provolone over the meats so it melts into seams and calms the salt.</li>
+          <li>Add lettuce, tomatoes (pre-salted), red onions (paper-thin), and banana peppers.</li>
+          <li>Drizzle red wine vinegar and olive oil evenly; sprinkle oregano, a pinch of salt, and cracked pepper.</li>
+          <li>Close and press gently with your palm. Rest 5 minutes—let it come together.</li>
+          <li>Slice diagonally. Serve loud with napkins. Accept compliments with humility and a smirk.</li>
+          <li>Optional panini: Press 2–3 minutes until the cheese sighs and the crust sings.</li>
+        </ol>
 
-  <section class="ingredients">
-    <h2>Ingredients</h2>
-    <ul>
-      <li>1 ciabatta roll or crusty sub bread</li>
-      <li>3 slices spicy salami</li>
-      <li>3 slices smoked ham</li>
-      <li>3 slices pepperoni</li>
-      <li>2 slices provolone cheese</li>
-      <li>1/2 cup shredded lettuce</li>
-      <li>1/4 cup sliced tomatoes</li>
-      <li>1/4 cup sliced red onions</li>
-      <li>1/4 cup banana peppers</li>
-      <li>2 tbsp zesty Italian vinaigrette</li>
-      <li>Optional: mayo, mustard, jalapeños</li>
-    </ul>
-  </section>
+        <div class="gallery" aria-label="Process photos">
+          <img src="/assets/images/recipes/italian-bmt/process-1.jpg" alt="Layering meats on toasted ciabatta." />
+          <img src="/assets/images/recipes/italian-bmt/process-2.jpg" alt="Adding lettuce, tomato, onions, and banana peppers." />
+          <img src="/assets/images/recipes/italian-bmt/process-3.jpg" alt="Drizzling vinaigrette and pressing the sandwich before slicing." />
+        </div>
+      </section>
 
-  <section class="instructions">
-    <h2>Instructions</h2>
-    <ol>
-      <li>Slice bread and toast lightly if desired.</li>
-      <li>Layer meats, cheese, and veggies in order of chaos.</li>
-      <li>Drizzle with vinaigrette and optional sauces.</li>
-      <li>Press gently, slice diagonally, and serve with attitude.</li>
-    </ol>
-  </section>
+      <section class="merch" aria-label="Featured merch from TastefulEaters.com">
+        <h2>Featured merch</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="/assets/images/merch/salty-unfiltered-tee.jpg" alt="Salty & Unfiltered Tee" />
+            <h3>SALTY & UNFILTERED TEE</h3>
+            <p>For the ones who layer flavor and speak sandwich fluently.</p>
+            <p class="price">$35</p>
+            <div class="actions">
+              <a class="btn" href="/shop/salty-unfiltered-tee">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/stacked-snacky-tote.jpg" alt="Stacked & Snacky Tote" />
+            <h3>STACKED & SNACKY TOTE</h3>
+            <p>Carry your sub, your sass, and your side-eye.</p>
+            <p class="price">$28</p>
+            <div class="actions">
+              <a class="btn" href="/shop/stacked-snacky-tote">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="/assets/images/merch/flavor-fight-stickers.jpg" alt="Flavor Fight Sticker Pack" />
+            <h3>FLAVOR FIGHT STICKER PACK</h3>
+            <p>Stick it, slice it, flaunt it. Flavor is rebellion.</p>
+            <p class="price">$12</p>
+            <div class="actions">
+              <a class="btn" href="/shop/flavor-fight-stickers">Add to cart</a>
+              <a class="btn-outline" href="/shop">Browse all</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
 
-  <section class="merch">
-    <h2>Featured Merch from TastefulEats.store</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/images/bmt-tee.jpg" alt="BMT Tee" />
-        <h3>SALTY & UNFILTERED TEE</h3>
-        <p>For the ones who layer flavor and speak sandwich fluently.</p>
-        <p>$35</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/sub-tote.jpg" alt="Sub Tote" />
-        <h3>STACKED & SNACKY TOTE</h3>
-        <p>Carry your sub, your sass, and your side-eye.</p>
-        <p>$28</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="assets/images/deli-stickers.jpg" alt="Sticker Pack" />
-        <h3>FLAVOR FIGHT STICKER PACK</h3>
-        <p>Stick it, slice it, flaunt it. Flavor is rebellion.</p>
-        <p>$12</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 TastefulEats.store — Where flavor meets festival.</p>
+  <footer role="contentinfo">
+    <p>© 2025 TastefulEaters.com — Where flavor meets festival.</p>
+    <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></p>
   </footer>
 </body>
 </html>
