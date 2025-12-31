@@ -3,53 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merch Story Dashboard — TastefulEats</title>
+  <title>Merch Story Dashboard — TastefulEaters.com</title>
   <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    body.merch-dashboard {
+      background: #0d0d0d;
+      color: #e6e6e6;
+      font-family: Georgia, serif;
+      padding-bottom: 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    header .tagline {
+      color: #b3b3b3;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .story-form {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #161616;
+      border: 1px solid #262626;
+      border-radius: 12px;
+    }
+
+    .story-form label {
+      display: block;
+      margin-top: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+      color: #d9d9d9;
+    }
+
+    .story-form input,
+    .story-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #0f0f0f;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .story-form button {
+      margin-top: 1.8rem;
+      width: 100%;
+      padding: 1rem;
+      background: #c63d2f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .story-form button:hover {
+      background: #a83227;
+    }
+
+    .shipping-note {
+      margin-top: 1rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    #storyLog {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+    }
+
+    #storyLog h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .review-block {
+      background: #161616;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .review-block h3 {
+      margin-top: 0.5rem;
+      color: #fff;
+    }
+
+    .review-block h4 {
+      margin-top: 1.2rem;
+      color: #c63d2f;
+    }
+
+    .review-block button {
+      margin-top: 1rem;
+      padding: 0.7rem 1rem;
+      background: #c63d2f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #777;
+      border-top: 1px solid #222;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
-<body class="merch-story-dashboard dark-theme">
+
+<body class="merch-dashboard">
 
   <header>
-    <h1>📖 Merch Story Dashboard</h1>
-    <p class="tagline">Publish with feeling. Every story is a vessel. Every item is a memory.</p>
+    <h1>🛍️ Merch Story Dashboard — TastefulEaters.com</h1>
+    <p class="tagline">
+      Every artifact deserves a story. Every drop carries a memory.  
+      Publish with intention. Build the sanctuary.
+    </p>
   </header>
 
   <section class="story-form">
     <label for="storyTitle">Story Title</label>
-    <input type="text" id="storyTitle" placeholder="e.g. JOY Hoodie — A Ritual of Softness" />
+    <input type="text" id="storyTitle" placeholder="e.g. STAY SOFT Hoodie — A Ritual of Resilience" />
 
     <label for="storyImage">Upload Featured Image</label>
     <input type="file" id="storyImage" accept="image/*" />
 
     <label for="storyText">Full Story (2000–3000 words)</label>
-    <textarea id="storyText" placeholder="Paste your emotionally fluent story here..." rows="12"></textarea>
+    <textarea id="storyText" placeholder="Paste your emotionally fluent merch story here..." rows="14"></textarea>
 
     <label for="emotionalTags">Emotional Tags</label>
-    <input type="text" id="emotionalTags" placeholder="e.g. joy, grief, ritual, memory" />
+    <input type="text" id="emotionalTags" placeholder="e.g. softness, rebellion, memory, grit" />
 
     <label for="merchName">Merch Name</label>
-    <input type="text" id="merchName" placeholder="e.g. JOY Hoodie" />
+    <input type="text" id="merchName" placeholder="e.g. STAY SOFT Hoodie" />
 
     <label for="merchPrice">Price ($)</label>
     <input type="number" id="merchPrice" step="0.01" />
 
     <label for="merchColors">Available Colors</label>
-    <input type="text" id="merchColors" placeholder="e.g. Sandstone, Midnight, Moss" />
+    <input type="text" id="merchColors" placeholder="e.g. Bone, Midnight, Ember" />
 
     <label for="merchSizes">Available Sizes</label>
     <input type="text" id="merchSizes" placeholder="e.g. XS, S, M, L, XL, XXL" />
 
-    <p class="shipping-note">📦 Shipping takes 9–14 business days. Each item is packed with care and memory.</p>
+    <p class="shipping-note">📦 Shipping: 9–14 days. Every artifact is packed with care, pride, and memory.</p>
 
-    <button onclick="publishMerchStory()">Publish Story</button>
+    <button onclick="publishMerchStory()">Publish Merch Story</button>
   </section>
 
-  <section id="storyLog" class="review-log">
-    <h2>🗂️ Published Merch Stories</h2>
-    <!-- Stories will appear here -->
+  <section id="storyLog">
+    <h2>📚 Published Merch Stories</h2>
   </section>
 
   <footer>
-    <p>&copy; 2025 TastefulEats. Storytelling is commerce. Memory is the product.</p>
+    <p>© 2025 TastefulEaters.com — Where artifacts meet emotion.</p>
   </footer>
 
   <script>
@@ -70,29 +201,23 @@
       const imageURL = imageFile ? URL.createObjectURL(imageFile) : "";
 
       block.innerHTML = `
-        ${imageURL ? `<img src="${imageURL}" alt="${title}" style="max-width:100%; border-radius:8px; margin-bottom:1rem;" />` : ""}
+        ${imageURL ? `<img src="${imageURL}" alt="${title}" style="max-width:100%; border-radius:10px; margin-bottom:1rem;" />` : ""}
         <h3>${title}</h3>
-        <p><strong>Tags:</strong> ${tags}</p>
+        <p><strong>Emotional Tags:</strong> ${tags}</p>
         <p><strong>Story:</strong><br>${story.replace(/\n/g, "<br>")}</p>
         <hr>
-        <h4>🛍️ ${merch}</h4>
+        <h4>${merch}</h4>
         <p><strong>Price:</strong> $${parseFloat(price).toFixed(2)}</p>
         <p><strong>Colors:</strong> ${colors}</p>
         <p><strong>Sizes:</strong> ${sizes}</p>
-        <p class="shipping-note">📦 Shipping takes 9–14 business days.</p>
+        <p class="shipping-note">📦 Ships in 9–14 days.</p>
         <button onclick="addToCart('${merch}', ${price}, '${imageURL}')">Add to Cart</button>
       `;
+
       container.prepend(block);
 
       // Clear form
-      document.getElementById("storyTitle").value = "";
-      document.getElementById("storyImage").value = "";
-      document.getElementById("storyText").value = "";
-      document.getElementById("emotionalTags").value = "";
-      document.getElementById("merchName").value = "";
-      document.getElementById("merchPrice").value = "";
-      document.getElementById("merchColors").value = "";
-      document.getElementById("merchSizes").value = "";
+      document.querySelectorAll(".story-form input, .story-form textarea").forEach(el => el.value = "");
     }
 
     function addToCart(name, price, image) {
@@ -103,5 +228,6 @@
       alert(`${name} added to cart.`);
     }
   </script>
+
 </body>
 </html>
